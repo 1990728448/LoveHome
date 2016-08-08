@@ -1,9 +1,17 @@
 package org.example.xinda_05.lovehome;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
-public class MainActivity extends Activity {
+import fragment.Home_pager_title_Fragment;
+
+public class MainActivity extends FragmentActivity {
+
+    FragmentManager fm; //碎片管理器
+    FragmentTransaction ft;//碎片事务
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -11,6 +19,23 @@ public class MainActivity extends Activity {
         //setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
 
+        //初始化控件
+        initView();
 
+
+
+
+    }
+    /*
+     * 用来初始化控件
+     * @author Jerry Mouse
+     * @time 2016/8/9 2:28
+     * @effect
+     */
+    private void initView() {
+        fm=getSupportFragmentManager();
+        ft=fm.beginTransaction();
+        ft.replace(R.id.HomePager_layout_title,new Home_pager_title_Fragment());
+        ft.commit();
     }
 }

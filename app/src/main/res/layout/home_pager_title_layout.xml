@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center"
+    android:background="#51C477">
+
+    <LinearLayout
+        android:id="@+id/HomePager_title_changeCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:id="@+id/HomePager_title_changeCityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cityname"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@mipmap/area_icon"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/HomePager_title_Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:background="@mipmap/search_bg">
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="18dp"
+            android:background="@mipmap/search"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/searchStore"
+            android:textColor="#ffffff"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/HomePager_title_notice"
+        android:layout_width="20dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="15dp"
+        android:background="@mipmap/message"/>
+</LinearLayout>

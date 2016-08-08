@@ -5,4 +5,6 @@
     <string name="lovehome">爱家乡</string>
     <string name="shared">发布</string>
     <string name="my">我的</string>
+    <string name="searchStore">查找商户</string>
+    <string name="cityname">城市</string>
 </resources>
