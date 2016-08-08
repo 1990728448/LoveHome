@@ -1,9 +1,11 @@
 package org.example.xinda_05.lovehome;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.WindowManager;
 
 import fragment.Home_pager_title_Fragment;
 
@@ -18,6 +20,10 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
 
         //初始化控件
         initView();
