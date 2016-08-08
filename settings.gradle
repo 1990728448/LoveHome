@@ -1,1 +1,1 @@
-include ':app', ':release', ':mien'
+include ':app', ':release', ':my'

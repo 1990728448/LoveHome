@@ -1,4 +1,4 @@
-package org.example.xinda_05.mien;
+package org.example.xinda_05.my;
 
 import org.junit.Test;
 
