@@ -9,7 +9,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        setContentView(R.layout.home_page_item_layout);
+        setContentView(R.layout.activity_main);
 
 
     }

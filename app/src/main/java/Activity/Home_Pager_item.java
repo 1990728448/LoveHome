@@ -1,12 +1,17 @@
 package activity;
 
 import android.app.Activity;
+import android.os.Bundle;
+
+import org.example.xinda_05.lovehome.R;
 
 /**
  * Created by Jerry Mouse on 2016/8/9.
  */
 public class Home_Pager_item extends Activity{
-
-
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.home_page_item_layout);
+    }
 }
