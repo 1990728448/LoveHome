@@ -4,109 +4,133 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="#51C477">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/HomePager_content_ViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <LinearLayout
-            android:id="@+id/HomePager_content_ViewPager_Dot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
-        </LinearLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_margin="5dp">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/HomePager_content_Item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <GridView
-            android:id="@+id/HomePager_content_GridView"
-            android:layout_width="match_parent"
-            android:numColumns="4"
-            android:layout_height="match_parent"/>
-
-        <LinearLayout
-            android:id="@+id/HomePager_content_Item_Dot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-    </RelativeLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E5E5E5"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:background="#E8E8E8"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E5E5E5"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="#51C477">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/HomePager_content_ViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:id="@+id/HomePager_content_ViewPager_Dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal"></LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_margin="5dp">
+
+                <!--
+                <GridView
+                    android:id="@+id/test_gridview"
+                    android:layout_width="match_parent"
+                    android:numColumns="4"
+                    android:layout_height="match_parent"/>
+                -->
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/HomePager_content_Item_ViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:id="@+id/HomePager_content_Item_Dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </RelativeLayout>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="laoxiang"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#E5E5E5"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="laoxiang"/>
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="#E8E8E8" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="laoxiang" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#E5E5E5" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="laoxiang" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#E8E8E8"
+                android:paddingLeft="15dp"
+                android:text="最新上线"
+                android:textColor="#B0B0B0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5" />
         </LinearLayout>
-
-
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E5E5E5"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#E8E8E8"
-        android:paddingLeft="15dp"
-        android:textColor="#B0B0B0"
-        android:text="最新上线"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E5E5E5"/>
+    </ScrollView>
 
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.WindowManager;
 
+import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_content_Fragment;
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_title_Fragment;
 
 public class MainActivity extends FragmentActivity {
@@ -42,6 +43,7 @@ public class MainActivity extends FragmentActivity {
         fm=getSupportFragmentManager();
         ft=fm.beginTransaction();
         ft.replace(R.id.HomePager_layout_title,new Home_pager_title_Fragment());
+        ft.replace(R.id.HomePager_layout_content,new Home_pager_content_Fragment());
         ft.commit();
     }
 }
