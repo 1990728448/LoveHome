@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.WindowManager;
 
-import fragment.Home_pager_title_Fragment;
+import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_title_Fragment;
 
 public class MainActivity extends FragmentActivity {
 

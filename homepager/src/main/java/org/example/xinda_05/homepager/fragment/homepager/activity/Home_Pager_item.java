@@ -1,9 +1,10 @@
-package activity;
+package org.example.xinda_05.homepager.fragment.homepager.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import org.example.xinda_05.lovehome.R;
+import org.example.xinda_05.homepager.R;
+
 
 /**
  * Created by Jerry Mouse on 2016/8/9.

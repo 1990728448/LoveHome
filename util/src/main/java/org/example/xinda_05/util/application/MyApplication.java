@@ -1,4 +1,4 @@
-package application;
+package org.example.xinda_05.util.application;
 
 import android.app.Application;
 

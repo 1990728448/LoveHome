@@ -1,1 +1,1 @@
-include ':app', ':release', ':my'
+include ':app', ':release', ':my', ':util', ':homepager'

@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "org.example.xinda_05.lovehome"
         minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
@@ -23,9 +22,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'it.sephiroth.android.library.picasso:picasso:2.5.2.4b'
-    compile project(':release')
-    compile project(':my')
-    compile project(':util')
-    compile project(':homepager')
+    compile 'org.xutils:xutils:3.3.36'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.loopj.android:android-async-http:1.4.9'
 }
