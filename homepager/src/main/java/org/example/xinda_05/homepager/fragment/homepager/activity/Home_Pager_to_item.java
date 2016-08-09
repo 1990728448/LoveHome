@@ -14,5 +14,6 @@ public class Home_Pager_to_item extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page_item_layout);
+        //更新
     }
 }
