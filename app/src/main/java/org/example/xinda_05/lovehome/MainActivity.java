@@ -26,7 +26,7 @@ public class MainActivity extends FragmentActivity {
         }
 
         //初始化控件
-        //initView();
+        initView();
 
 
 
