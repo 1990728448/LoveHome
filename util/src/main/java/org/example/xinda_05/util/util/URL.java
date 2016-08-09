@@ -1,5 +1,7 @@
 package org.example.xinda_05.util.util;
 
+import java.net.HttpURLConnection;
+
 /**
  * Created by Jerry Mouse on 2016/8/9.
  */
@@ -14,6 +16,14 @@ public class URL {
 
     //获取分类信息，适用于在首页的item以及发布中的item和popwindow
     public static String MENU_INFO=BASE_URL+"/printCategory";
+
+    public URL(String s) {
+    }
+
+    public HttpURLConnection openConnection() {
+        return null;
+    }
+
 
     //
 
