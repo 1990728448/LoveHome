@@ -7,14 +7,15 @@
 
     <ImageView
         android:id="@+id/HomePager_content_GridView_item_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
         android:src="@mipmap/defualt"/>
     <TextView
         android:id="@+id/HomePager_content_GridView_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#676767"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 
 </LinearLayout>

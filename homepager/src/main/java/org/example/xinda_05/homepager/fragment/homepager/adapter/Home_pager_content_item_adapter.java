@@ -2,7 +2,6 @@ package org.example.xinda_05.homepager.fragment.homepager.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
@@ -27,7 +26,6 @@ public class Home_pager_content_item_adapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         GridView view=new GridView(context);
-        Log.e("TAG","position的大小"+position);
         view.setAdapter(new Home_pager_content_gridview_adapter(context,list,position));
         view.setNumColumns(4);
         container.addView(view);
@@ -41,7 +39,7 @@ public class Home_pager_content_item_adapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return list.size()/8;
+        return (list.size()/8)+1;
     }
 
     @Override
