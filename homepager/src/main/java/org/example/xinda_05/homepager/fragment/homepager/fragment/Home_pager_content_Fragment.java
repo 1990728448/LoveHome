@@ -33,6 +33,7 @@ public class Home_pager_content_Fragment extends Fragment {
     private ArrayList<GridView> gridViews;
     private LinearLayout ll;
     private ViewPager viewPager;
+    private ArrayList<LinearLayout> dot;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class Home_pager_content_Fragment extends Fragment {
         //viewPager = (ViewPager) view.findViewById(R.id.HomePager_content_Item_ViewPager);
         viewPager = (ViewPager) view.findViewById(R.id.HomePager_content_Item_ViewPager);
         ll = (LinearLayout) view.findViewById(R.id.HomePager_content_Item_GroupDot);
+        dot = new ArrayList<>();
 
         gridViews = new ArrayList<>();
     }
@@ -71,24 +73,53 @@ public class Home_pager_content_Fragment extends Fragment {
                 ArrayList<Home_pager_item_entity> data = GsonUtil.Gson(response);
 
                 //数据填充至PageView
-                viewPager.setAdapter(new Home_pager_content_item_adapter(data, getContext()));
+                viewPager.setAdapter(new Home_pager_content_item_adapter(data, getContext(), ll));
 
                 //添加Item小圆点
-                LinearLayout.LayoutParams Params=new LinearLayout.LayoutParams(25,25);
+
+                LinearLayout.LayoutParams Params = new LinearLayout.LayoutParams(25, 25);
                 for (int i = 0; i < (data.size() / 8) + 1; i++) {
-                    if(i==0){
+                    if (i == 0) {
                         LinearLayout l2 = new LinearLayout(getContext());
                         l2.setBackgroundResource(R.mipmap.hen_point);
                         l2.setLayoutParams(Params);
                         ll.addView(l2);
-                    }else{
+                        dot.add(l2);
+                    } else {
                         LinearLayout l2 = new LinearLayout(getContext());
                         l2.setBackgroundResource(R.mipmap.hen_point);
-                        Params.leftMargin=13;
+                        Params.leftMargin = 13;
                         l2.setLayoutParams(Params);
                         ll.addView(l2);
+                        dot.add(l2);
                     }
                 }
+
+                dot.get(0).setBackgroundResource(R.mipmap.green_point);
+
+                viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        Home_pager_content_item_adapter.page = position;
+                        for (int i = 0; i < dot.size(); i++) {
+                            if (i != position) {
+                                dot.get(i).setBackgroundResource(R.mipmap.hen_point);
+                            }
+                        }
+                        dot.get(position).setBackgroundResource(R.mipmap.green_point);
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
+
 
             }
 

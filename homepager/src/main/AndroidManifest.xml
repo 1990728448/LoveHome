@@ -9,6 +9,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <activity android:name=".fragment.homepager.activity.Home_Pager_to_item"/>
+
     </application>
 
 </manifest>
