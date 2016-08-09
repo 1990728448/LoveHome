@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这是"平台声明"的布局文件-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#53c67a"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/fanhui"
+            android:layout_gravity="left"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/xiaoyuhao"
+            android:onClick="fanhui_click"/> //返回上一个页面
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="        平台声明"
+            android:textSize="35dp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:background="#53c67a"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#000000"
+        android:text="               《爱家乡》平台申明
+  欢迎使用爱家乡。
+
+  爱家乡是杭州五克商务公司（以下简称我们)所运营的便民信息发布软件，旨在最准确、最全面收集同一地区生活类信息，从而服务当地人，实现特定区域内人与人互动更频繁、信息来往更高效。我们致力于建立一个本地、简单且搞笑的使用环境。希望您在使用时与我们一同努力。
+
+  当您下载爱家乡并使用其所提供的服务（以下称本服务）时，您应事先仔细阅读、充分理解本《用户协议》（以下称本协议）中的全部条款，并在此基础上同意接受本协议。如果您是未成年人，请在法定监护人的陪同下完成。
+
+  我们力求精简本协议内容，以便于阅读及理解。请注意，您使用爱家乡，即视为您已接受本协议的全部条款；您使用本服务，以及在此过程中发布的任何信息内容都应遵守本协议，并受本协议约束。
+  一、基础条款 使用本服务,您应首先确认并保证您有完整的资格及权利同意本协议"
+
+        />
+</LinearLayout>
