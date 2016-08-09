@@ -24,9 +24,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'it.sephiroth.android.library.picasso:picasso:2.5.2.4b'
-    compile project(':release')
-    compile project(':my')
-    compile project(':util')
     compile project(':homepager')
+    compile project(':my')
+    compile project(':release')
     compile project(':user')
+    compile project(':util')
 }
