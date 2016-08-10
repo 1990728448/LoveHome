@@ -23,7 +23,7 @@ public class MainActivity_Release_Adapter extends BaseAdapter{
     private ArrayList<Release_pager_entity> list;
     private int page;
 
-    public MainActivity_Release_Adapter(Context context,ArrayList<Release_pager_entity>list,int page) {
+    public MainActivity_Release_Adapter(Context context,ArrayList<Release_pager_entity>list) {
         this.context = context;
         this.list=list;
         this.page=page;
@@ -55,19 +55,13 @@ public class MainActivity_Release_Adapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        switch (page){
-            case 0:{
+
                 Release_pager_entity info = list.get(i);
                 Picasso.with(context).load(info.getParent_cate_img_url()).into(holder.image);
                 holder.text.setText(info.getParent_cate_name());
-            }break;
-            case 1:{
-                Log.e("TAG","list的总大小是:"+list.size()+"这是grid中的："+i);
-                Release_pager_entity info = list.get(i+7);
-                Picasso.with(context).load(info.getParent_cate_img_url()).into(holder.image);
-                holder.text.setText(info.getParent_cate_name());
-            }break;
-        }
+
+
+
         return view;
     }
 

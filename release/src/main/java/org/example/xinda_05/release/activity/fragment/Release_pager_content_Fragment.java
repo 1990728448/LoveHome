@@ -28,12 +28,17 @@ import cz.msebera.android.httpclient.Header;
 
 public class Release_pager_content_Fragment extends Fragment{
     private View view;
-    private ArrayList<GridView> gridViews;
+    private GridView gridview;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.release_activity_layout,null);
+        initData();
         return view;
 
+    }
+    private void initView(){
+        gridview =(GridView)view.findViewById(R.id.release_gridview);
     }
     public void initData() {
         HttpUtil.getURLData().getItem(new JsonHttpResponseHandler() {
@@ -46,13 +51,12 @@ public class Release_pager_content_Fragment extends Fragment{
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
-                ArrayList<Release_pager_entity> data = new ArrayList<>();
+                //ArrayList<Release_pager_entity> data = new ArrayList<>();
                 //数据进行封装
                 ArrayList<Release_pager_entity> date = GsonUtil.Gson(response);
 
                 //数据填充至Gridview
-               // gridViews.setAdapter(new MainActivity_Release_Adapter(date, getContext()));
-              // ViewPager.setAdapter(new MainActivity_Release_Adapter(data,getContext()));
+                gridview.setAdapter(new MainActivity_Release_Adapter(getContext(),date));
             }
 
         });
