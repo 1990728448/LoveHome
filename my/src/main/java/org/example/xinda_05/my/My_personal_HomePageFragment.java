@@ -7,9 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 
 /**
@@ -35,6 +32,7 @@ public class My_personal_HomePageFragment extends Fragment{
     };
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.my_homepage_layout,null);
+        /*
         LinearLayout layoutuser= (LinearLayout) view.findViewById(R.id.user_intent_layout);
         LinearLayout perlayout1= (LinearLayout) view.findViewById(R.id.person_mypublish_intent);
 
@@ -42,6 +40,8 @@ public class My_personal_HomePageFragment extends Fragment{
         perlayout1.setOnClickListener(personclick);
         layoutuser.setTag(0);
         perlayout1.setTag(1);
+
+        */
         return view;
 
     }

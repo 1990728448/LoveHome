@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import org.example.xinda_05.homepager.R;
 import org.example.xinda_05.homepager.fragment.homepager.activity.Home_Pager_MyNews;
@@ -18,8 +20,9 @@ import org.example.xinda_05.homepager.fragment.homepager.activity.Home_Pager_MyN
  */
 public class Home_pager_title_Fragment extends Fragment{
 
-    private LinearLayout HomePager_title_notice;
-    View view;
+    private LinearLayout HomePager_title_notice,HomePager_title_changeCity;
+    private TextView HomePager_title_changeCityName;
+    private View view;
 
     @Nullable
     @Override
@@ -38,6 +41,18 @@ public class Home_pager_title_Fragment extends Fragment{
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),Home_Pager_MyNews.class);
                 startActivity(intent);
+            }
+        });
+
+        HomePager_title_changeCity= (LinearLayout) view.findViewById(R.id.HomePager_title_changeCity);
+        HomePager_title_changeCityName= (TextView) view.findViewById(R.id.HomePager_title_changeCityName);
+    }
+
+    public void changCity(){
+        HomePager_title_changeCity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupWindow pop=new PopupWindow();
             }
         });
     }

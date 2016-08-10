@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,6 +80,7 @@ public class Home_pager_content_Fragment extends Fragment {
             }
             @Override
             public void onPageSelected(int position) {
+                pageNum=position;
                 for (int i = 0; i < image.length; i++) {
                     LunBoDot.get(i).setImageResource(R.mipmap.hen_point);
                 }
@@ -91,6 +91,7 @@ public class Home_pager_content_Fragment extends Fragment {
 
             }
         });
+
         //设置中间位置,保证是页面数量的整数倍
         pageNum=(1000/2)-(1000/2)%image.length;
         HomePager_content_ViewPager.setCurrentItem(pageNum);
@@ -186,7 +187,6 @@ public class Home_pager_content_Fragment extends Fragment {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if(msg.what==0){
-                Log.e("TAG","得到消息");
                 pageNum++;
                 HomePager_content_ViewPager.setCurrentItem(pageNum);
             }

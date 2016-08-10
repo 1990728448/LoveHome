@@ -11,7 +11,8 @@ import android.widget.LinearLayout;
 
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_content_Fragment;
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_title_Fragment;
-import org.example.xinda_05.my.My_HomePageFragment;
+import org.example.xinda_05.my.My_login_headFragment;
+import org.example.xinda_05.my.My_personal_HomePageFragment;
 import org.example.xinda_05.release.activity.fragment.Release_page_tatle_Fragment;
 import org.example.xinda_05.release.activity.fragment.Release_pager_content_Fragment;
 
@@ -41,26 +42,22 @@ public class MainActivity extends FragmentActivity {
                     HomePager_button_lovehome_image.setImageResource(R.mipmap.home_press);
                     ft2.replace(R.id.HomePager_layout_title, new Home_pager_title_Fragment());
                     ft2.replace(R.id.HomePager_layout_content, new Home_pager_content_Fragment());
-                    ft2.commit();
                 }
                 break;
                 case R.id.HomePager_button_shared: {
                     HomePager_button_shared_image.setImageResource(R.mipmap.publish_press);
                     ft2.replace(R.id.HomePager_layout_title, new Release_page_tatle_Fragment());
                     ft2.replace(R.id.HomePager_layout_content,new Release_pager_content_Fragment());
-                    ft2.commit();
                 }
                 break;
                 case R.id.HomePager_button_my: {
                     HomePager_button_my_image.setImageResource(R.mipmap.wode_press);
-                    ft2.remove(new Release_page_tatle_Fragment());
-                    ft2.commit();
-                    FragmentTransaction ft3 = fm.beginTransaction();
-                    ft3.replace(R.id.HomePager_layout_content,new My_HomePageFragment());
-                    ft3.commit();
+                    ft2.replace(R.id.HomePager_layout_title,new My_login_headFragment());
+                    ft2.replace(R.id.HomePager_layout_content,new My_personal_HomePageFragment());
                 }
                 break;
             }
+            ft2.commit();
         }
     };
 
