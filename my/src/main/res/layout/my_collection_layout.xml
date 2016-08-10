@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#53c67a"
+        android:background="#51C477"
         android:gravity="center">
         <ImageView
             android:id="@+id/back"
@@ -17,15 +17,15 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:src="@drawable/xiaoyuhao"/>
+            android:src="@mipmap/xiaoyuhao"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="        我的收藏"
+            android:text="@string/string_collection"
             android:textSize="35dp"
             android:textColor="#ffffff"
-            android:layout_gravity="center"
-            android:background="##51C477"/>
+            android:gravity="center"
+            android:background="#51C477"/>
 
     </LinearLayout>
     <TextView

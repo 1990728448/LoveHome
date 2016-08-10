@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My</string>
+    <string name="string_about">关于爱家乡</string>
+    <string name="string_changepassword">修改密码</string>
+    <string name="string_collection">我的收藏</string>
+    <string name="string_message">我的消息</string>
+    <string name="string_statement">平台声明</string>
+    <string name="string_release">我的发布</string>
+    <string name="string_thedraft">我的草稿</string>
+    <string name="string_share">分享软件</string>
+    <string name="string_Forgotpassword">忘记密码</string>Clear the cache
+    <string name="string_clearcache">清除缓存</string>
 </resources>

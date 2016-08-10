@@ -17,14 +17,14 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:src="@drawable/xiaoyuhao" /> //返回上一个页面
+            android:src="@mipmap/xiaoyuhao" /> //返回上一个页面的按钮
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="      关于爱家乡"
+            android:text="@string/string_about"
             android:textSize="35dp"
             android:textColor="#ffffff"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:background="#51C477"/>
 
     </LinearLayout>
