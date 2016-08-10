@@ -3,6 +3,7 @@ package org.example.xinda_05.release.activity.fragment;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ import org.example.xinda_05.release.activity.adapter.MainActivity_Release_Adapte
 import org.example.xinda_05.release.activity.entity.Release_pager_entity;
 import org.example.xinda_05.release.activity.util.GsonUtil;
 import org.example.xinda_05.util.util.HttpUtil;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -25,11 +25,13 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by Administrator on 2016/8/10 0010.
  */
+
 public class Release_pager_content_Fragment extends Fragment{
+    private View view;
     private ArrayList<GridView> gridViews;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.release_gridview_page_layout,null);
+        view=inflater.inflate(R.layout.release_activity_layout,null);
         return view;
 
     }
@@ -50,7 +52,7 @@ public class Release_pager_content_Fragment extends Fragment{
 
                 //数据填充至Gridview
                // gridViews.setAdapter(new MainActivity_Release_Adapter(date, getContext()));
-               // date.setAdapter(new MainActivity_Release_Adapter(data,getContext()));
+              // ViewPager.setAdapter(new MainActivity_Release_Adapter(data,getContext()));
             }
 
         });
