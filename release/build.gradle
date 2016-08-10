@@ -24,5 +24,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile project(':util')
     compile project(':user')
-    compile 'it.sephiroth.android.library.picasso:picasso:2.5.2.4b'
 }
