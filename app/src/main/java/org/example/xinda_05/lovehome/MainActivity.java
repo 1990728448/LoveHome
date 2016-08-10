@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_content_Fragment;
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_title_Fragment;
 import org.example.xinda_05.release.activity.fragment.Release_page_tatle_Fragment;
+import org.example.xinda_05.release.activity.fragment.Release_pager_content_Fragment;
 
 public class MainActivity extends FragmentActivity {
 
@@ -44,7 +45,7 @@ public class MainActivity extends FragmentActivity {
                 case R.id.HomePager_button_shared: {
                     HomePager_button_shared_image.setImageResource(R.mipmap.publish_press);
                     ft2.replace(R.id.HomePager_layout_title, new Release_page_tatle_Fragment());
-                    //ft2.replace(R.id.HomePager_layout_content,new Release_pager_content_Fragment());
+                    ft2.replace(R.id.HomePager_layout_content,new Release_pager_content_Fragment());
                 }
                 break;
                 case R.id.HomePager_button_my: {

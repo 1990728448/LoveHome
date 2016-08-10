@@ -1,6 +1,8 @@
 package org.example.xinda_05.homepager.fragment.homepager.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,10 +47,11 @@ public class Home_pager_LunBo_ViewPager_adapter extends PagerAdapter {
     }
 
     private class ViewPageClick implements View.OnClickListener{
-
         @Override
         public void onClick(View view) {
-
+            Intent intent=new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("http://www.baidu.com"));
+            content.startActivity(intent);
         }
     }
 }
