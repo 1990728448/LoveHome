@@ -1,12 +1,15 @@
 package org.example.xinda_05.homepager.fragment.homepager.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -31,6 +34,8 @@ public class Home_pager_title_Fragment extends Fragment{
 
         initView();
 
+        changCity(getContext());
+
         return view;
     }
 
@@ -48,11 +53,15 @@ public class Home_pager_title_Fragment extends Fragment{
         HomePager_title_changeCityName= (TextView) view.findViewById(R.id.HomePager_title_changeCityName);
     }
 
-    public void changCity(){
+    public void changCity(final Context context){
         HomePager_title_changeCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupWindow pop=new PopupWindow();
+                View view1=LayoutInflater.from(context).inflate(R.layout.home_pager_popwindow_citychange,null);
+                PopupWindow pop=new PopupWindow(view1, WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+                pop.setBackgroundDrawable(new BitmapDrawable());
+                pop.setFocusable(true);
+                pop.showAsDropDown(HomePager_title_changeCity);
             }
         });
     }
