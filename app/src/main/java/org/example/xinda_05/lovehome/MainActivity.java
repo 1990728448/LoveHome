@@ -5,12 +5,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_content_Fragment;
 import org.example.xinda_05.homepager.fragment.homepager.fragment.Home_pager_title_Fragment;
 import org.example.xinda_05.release.activity.fragment.Release_page_tatle_Fragment;
+import org.example.xinda_05.release.activity.fragment.Release_pager_content_Fragment;
 
 public class MainActivity extends FragmentActivity {
 
@@ -43,7 +45,7 @@ public class MainActivity extends FragmentActivity {
                 case R.id.HomePager_button_shared: {
                     HomePager_button_shared_image.setImageResource(R.mipmap.publish_press);
                     ft2.replace(R.id.HomePager_layout_title, new Release_page_tatle_Fragment());
-                    //ft2.replace(R.id.HomePager_layout_content,new Release_pager_content_Fragment());
+                    ft2.replace(R.id.HomePager_layout_content,new Release_pager_content_Fragment());
                 }
                 break;
                 case R.id.HomePager_button_my: {
@@ -58,6 +60,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

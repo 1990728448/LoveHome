@@ -21,26 +21,29 @@ import it.sephiroth.android.library.picasso.Picasso;
 public class MainActivity_Release_Adapter extends BaseAdapter{
     private   Context context;
     private ArrayList<Release_pager_entity> list;
-    private int page;
+
 
     public MainActivity_Release_Adapter(Context context,ArrayList<Release_pager_entity>list) {
         this.context = context;
         this.list=list;
-        this.page=page;
+
     }
     @Override
     public int getCount() {
-        return 0;
+
+        return list.size();
     }
 
     @Override
     public Object getItem(int i) {
+
         return null;
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+
+        return i;
     }
 
     @Override

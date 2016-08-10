@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center_horizontal"
+android:background="#ffffff">
+<LinearLayout
+    android:orientation="horizontal"
+    android:background="#51C477"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    >
+    <ImageButton
+        android:gravity="center_vertical"
+        android:layout_height="32dip"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dip"
+        android:layout_marginTop="10dip"
+        android:background="@mipmap/back_icon"
+        android:layout_weight="0"
+        />
+    <EditText
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="#8AD8A4"
+        android:paddingLeft="10dip"
+        android:layout_width="288dip"
+        android:layout_height="50dip"
+        android:layout_marginLeft="5dip"
+        android:hint="请输入商户名称"
+        />
+
+    <ImageButton
+        android:gravity="center_vertical"
+        android:layout_height="32dip"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dip"
+        android:layout_marginTop="10dip"
+        android:background="@mipmap/search"
+        android:layout_weight="0"
+        />
+
+</LinearLayout>
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="60dip"
+    >
+    <TextView
+        android:gravity="center"
+        android:layout_width="200dip"
+        android:layout_height="60dip"
+        android:text="外卖汇"
+        android:textSize="26sp"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        >
+        <TextView
+            android:gravity="center"
+            android:layout_width="130dip"
+            android:layout_height="60dip"
+            android:textSize="26sp"
+            android:text="全部商户"
+            />
+        <ImageView
+            android:layout_width="38dip"
+            android:layout_height="25dip"
+            android:layout_marginTop="20dip"
+            android:background="@mipmap/buttom_icon"
+            />
+    </LinearLayout>
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#ffffff"
+    >
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        />
+
+</LinearLayout>
+</LinearLayout>
