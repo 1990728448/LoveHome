@@ -32,4 +32,12 @@ public class HttpUtil {
         }
     }
 
+    public void getAllStoreInfo(JsonHttpResponseHandler handler){
+        try{
+            String Url=URL.ALL_StoreInfo;
+            client.get(Url,handler);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

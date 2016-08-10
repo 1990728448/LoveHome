@@ -17,6 +17,9 @@ public class URL {
     //获取分类信息，适用于在首页的item以及发布中的item和popwindow
     public static String MENU_INFO=BASE_URL+"/printCategory";
 
+    //获取网络商铺所有信息
+    public static String ALL_StoreInfo=BASE_URL+"/detailInfo?is_approve=1";
+
     public URL(String s) {
     }
 
