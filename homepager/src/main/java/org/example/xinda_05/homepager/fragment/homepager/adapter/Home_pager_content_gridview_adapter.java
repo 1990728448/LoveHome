@@ -1,7 +1,6 @@
 package org.example.xinda_05.homepager.fragment.homepager.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -23,17 +22,22 @@ public class Home_pager_content_gridview_adapter extends BaseAdapter {
     private Context context;
     private ArrayList<Home_pager_item_entity> list;
     private int page;
+    Home_pager_item_entity info;
 
-    public Home_pager_content_gridview_adapter(Context context, ArrayList<Home_pager_item_entity> list,int page) {
+    public Home_pager_content_gridview_adapter(Context context, ArrayList<Home_pager_item_entity> list, int page) {
         this.context = context;
         this.list = list;
-        this.page=page;
+        this.page = page;
     }
 
 
     @Override
     public int getCount() {
-        return 8;
+        if (page == 0) {
+            return 8;
+        } else {
+            return 7;
+        }
     }
 
     @Override
@@ -58,18 +62,23 @@ public class Home_pager_content_gridview_adapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        switch (page){
-            case 0:{
-                Home_pager_item_entity info = list.get(i);
+
+        switch (page) {
+            case 0: {
+                info = list.get(i);
                 Picasso.with(context).load(info.getParent_cate_img_url()).into(holder.image);
                 holder.text.setText(info.getParent_cate_name());
-            }break;
-            case 1:{
-                Log.e("TAG","list的总大小是:"+list.size()+"这是grid中的："+i);
-                Home_pager_item_entity info = list.get(i+7);
-                Picasso.with(context).load(info.getParent_cate_img_url()).into(holder.image);
-                holder.text.setText(info.getParent_cate_name());
-            }break;
+            }
+            break;
+            case 1: {
+                int s = i + 8;
+                if (s < 15) {
+                    info = list.get(s);
+                    Picasso.with(context).load(info.getParent_cate_img_url()).into(holder.image);
+                    holder.text.setText(info.getParent_cate_name());
+                }
+            }
+            break;
         }
         return view;
     }
