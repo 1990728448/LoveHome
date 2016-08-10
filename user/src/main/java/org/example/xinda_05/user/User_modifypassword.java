@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by ZhouZhicheng on 2016/8/10.
+ * Created by ZhouZhicheng on 2016/8/9.
  */
-public class User_forgetpassword extends Activity{
+public class User_modifypassword extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.forgetpassword_layout);
+        setContentView(R.layout.modifypassword_layout);
     }
 }
