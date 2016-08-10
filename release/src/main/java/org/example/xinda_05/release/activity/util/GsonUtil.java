@@ -12,7 +12,8 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/8/10 0010.
  */
-public class GsonUtil { public static ArrayList<Release_pager_entity> Gson(JSONArray jsonObject){
+public class GsonUtil {
+    public static ArrayList<Release_pager_entity> Gson(JSONObject jsonObject){
     ArrayList<Release_pager_entity> list=new ArrayList<>();
 
     try{

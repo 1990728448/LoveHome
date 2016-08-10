@@ -29,20 +29,20 @@ public class Release_pager_content_Fragment extends Fragment{
     private ArrayList<GridView> gridViews;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.release_gridview_layout,null);
+        View view=inflater.inflate(R.layout.release_gridview_page_layout,null);
         return view;
 
     }
     public void initData() {
         HttpUtil.getURLData().getItem(new JsonHttpResponseHandler() {
             @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
 
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 ArrayList<Release_pager_entity> data = new ArrayList<>();
                 //数据进行封装
