@@ -50,6 +50,7 @@ public class Release_pager_content_Fragment extends Fragment{
 
                 //数据填充至Gridview
                // gridViews.setAdapter(new MainActivity_Release_Adapter(date, getContext()));
+               // date.setAdapter(new MainActivity_Release_Adapter(data,getContext()));
             }
 
         });
