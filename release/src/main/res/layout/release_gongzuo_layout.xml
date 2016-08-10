@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="阿里巴巴"
                 android:background="@null"
-                android:maxLine="5"/>
+              />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="阿里巴巴"
                 android:background="@null"
-                android:maxLine="5"/>
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="请填写价格"
                 android:background="@null"
-                android:maxLine="5"/>
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:text="请填写好计量单位（例如小时，）"
                 android:background="@null"
-                android:maxLine="5"/>
+                />
         </LinearLayout>
 
         <View
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:text="请填写好地址"
                 android:background="@null"
-                android:maxLine="5"/>
+               />
         </LinearLayout>
 
         <View
@@ -222,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:text="请填写好联系人"
                 android:background="@null"
-                android:maxLine="5"/>
+                />
         </LinearLayout>
 
         <View
@@ -245,7 +245,7 @@
                 android:layout_height="wrap_content"
                 android:text="请填写正确的联系方式（外地带“区号”）"
                 android:background="@null"
-                android:maxLine="5"/>
+                />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
@@ -260,7 +260,7 @@
                 android:layout_height="wrap_content"
                 android:text="房源描述含基本信息"
                 android:background="@null"
-                android:maxLine="5"/>
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
