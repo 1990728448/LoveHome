@@ -15,7 +15,7 @@ import android.widget.TextView;
 /**
  * Created by CYLL on 2016/8/9.
  */
-public class My_HomePageFragment extends Fragment{
+public class My_personal_HomePageFragment extends Fragment{
     @Nullable
     View.OnClickListener personclick=new View.OnClickListener() {
         @Override
