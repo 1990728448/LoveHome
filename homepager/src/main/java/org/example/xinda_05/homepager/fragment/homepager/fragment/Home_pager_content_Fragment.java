@@ -1,8 +1,12 @@
 package org.example.xinda_05.homepager.fragment.homepager.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +40,7 @@ public class Home_pager_content_Fragment extends Fragment {
     private ArrayList<LinearLayout> dot;
     private ViewPager HomePager_content_ViewPager;
     private LinearLayout HomePager_content_ViewPager_Dot;
+    private int pageNum;
 
 
     private int[] image= new int[]{R.mipmap.lunbo1, R.mipmap.lunbo2, R.mipmap.lunbo3};
@@ -49,7 +54,7 @@ public class Home_pager_content_Fragment extends Fragment {
         initView();
 
         //网络获取列表，填充至界面
-        intoGridViewData();
+        intoGridViewData(getContext());
 
         //加载ViewPager轮播图
         HomePager_content_ViewPager.setAdapter(new Home_pager_LunBo_ViewPager_adapter(getContext(),image));
@@ -87,7 +92,12 @@ public class Home_pager_content_Fragment extends Fragment {
             }
         });
         //设置中间位置,保证是页面数量的整数倍
-        HomePager_content_ViewPager.setCurrentItem((1000/2)-(1000/2)%image.length);
+        pageNum=(1000/2)-(1000/2)%image.length;
+        HomePager_content_ViewPager.setCurrentItem(pageNum);
+
+        //启动线程轮播
+        new MyThrad().start();
+
         return view;
     }
 
@@ -105,7 +115,7 @@ public class Home_pager_content_Fragment extends Fragment {
 
 
     //网络获取列表，填充至界面
-    private void intoGridViewData() {
+    private void intoGridViewData(final Context context) {
         HttpUtil.getURLData().getItem(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -121,7 +131,7 @@ public class Home_pager_content_Fragment extends Fragment {
 
                 LinearLayout.LayoutParams Params = new LinearLayout.LayoutParams(20, 20);
                 for (int i = 0; i < (data.size() / 8) + 1; i++) {
-                    LinearLayout l2 = new LinearLayout(getActivity());
+                    LinearLayout l2 = new LinearLayout(context);
                     if (i == 0) {
                         l2.setBackgroundResource(R.mipmap.hen_point);
                         l2.setLayoutParams(Params);
@@ -171,8 +181,31 @@ public class Home_pager_content_Fragment extends Fragment {
         });
     }
 
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.what==0){
+                Log.e("TAG","得到消息");
+                pageNum++;
+                HomePager_content_ViewPager.setCurrentItem(pageNum);
+            }
+        }
+    };
+
     //处理轮播图自动滚动
     public class MyThrad extends Thread{
-
+        @Override
+        public void run() {
+            super.run();
+            while(true){
+                try {
+                    Thread.sleep(3000);
+                    handler.sendEmptyMessage(0);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
