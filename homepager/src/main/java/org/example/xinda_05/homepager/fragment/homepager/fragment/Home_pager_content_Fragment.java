@@ -6,12 +6,13 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.homepager.R;
+import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_LunBo_ViewPager_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_content_item_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_item_entity;
 import org.example.xinda_05.homepager.fragment.homepager.util.GsonUtil;
@@ -29,11 +30,15 @@ import cz.msebera.android.httpclient.Header;
 public class Home_pager_content_Fragment extends Fragment {
 
     private View view;
-    private GridView HomePager_content_GridView;
-    private ArrayList<GridView> gridViews;
+    private ArrayList<ImageView> LunBoDot;
     private LinearLayout ll;
     private ViewPager viewPager;
     private ArrayList<LinearLayout> dot;
+    private ViewPager HomePager_content_ViewPager;
+    private LinearLayout HomePager_content_ViewPager_Dot;
+
+
+    private int[] image= new int[]{R.mipmap.lunbo1, R.mipmap.lunbo2, R.mipmap.lunbo3};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,22 +48,59 @@ public class Home_pager_content_Fragment extends Fragment {
         //初始化所有控件
         initView();
 
+        //网络获取列表，填充至界面
         intoGridViewData();
 
+        //加载ViewPager轮播图
+        HomePager_content_ViewPager.setAdapter(new Home_pager_LunBo_ViewPager_adapter(getContext(),image));
 
+        //轮播图添加小圆点
+        LinearLayout.LayoutParams lp= new LinearLayout.LayoutParams(20,20);
+        for (int i = 0; i <image.length; i++) {
+            ImageView imageView=new ImageView(getActivity());
+            if(i!=0){
+                lp.leftMargin=15;
+                imageView.setLayoutParams(lp);
+            }
+            imageView.setImageResource(R.mipmap.hen_point);
+            imageView.setLayoutParams(lp);
+            LunBoDot.add(imageView);
+            HomePager_content_ViewPager_Dot.addView(imageView);
+        }
+
+        //轮播图上的圆点变色
+        LunBoDot.get(0).setImageResource(R.mipmap.green_point);
+        HomePager_content_ViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < image.length; i++) {
+                    LunBoDot.get(i).setImageResource(R.mipmap.hen_point);
+                }
+                LunBoDot.get(position%image.length).setImageResource(R.mipmap.green_point);
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        //设置中间位置,保证是页面数量的整数倍
+        HomePager_content_ViewPager.setCurrentItem((1000/2)-(1000/2)%image.length);
         return view;
     }
 
     //初始化控件
     private void initView() {
-        View view1 = LayoutInflater.from(getContext()).inflate(R.layout.home_pager_content_gridview, null);
-        HomePager_content_GridView = (GridView) view1.findViewById(R.id.HomePager_content_GridView);
-        //viewPager = (ViewPager) view.findViewById(R.id.HomePager_content_Item_ViewPager);
         viewPager = (ViewPager) view.findViewById(R.id.HomePager_content_Item_ViewPager);
         ll = (LinearLayout) view.findViewById(R.id.HomePager_content_Item_GroupDot);
-        dot = new ArrayList<>();
+        HomePager_content_ViewPager= (ViewPager) view.findViewById(R.id.HomePager_content_ViewPager);
+        HomePager_content_ViewPager_Dot= (LinearLayout) view.findViewById(R.id.HomePager_content_ViewPager_Dot);
 
-        gridViews = new ArrayList<>();
+        dot = new ArrayList<>();
+        LunBoDot=new ArrayList<>();
+
     }
 
 
@@ -77,18 +119,17 @@ public class Home_pager_content_Fragment extends Fragment {
 
                 //添加Item小圆点
 
-                LinearLayout.LayoutParams Params = new LinearLayout.LayoutParams(25, 25);
+                LinearLayout.LayoutParams Params = new LinearLayout.LayoutParams(20, 20);
                 for (int i = 0; i < (data.size() / 8) + 1; i++) {
+                    LinearLayout l2 = new LinearLayout(getActivity());
                     if (i == 0) {
-                        LinearLayout l2 = new LinearLayout(getContext());
                         l2.setBackgroundResource(R.mipmap.hen_point);
                         l2.setLayoutParams(Params);
                         ll.addView(l2);
                         dot.add(l2);
                     } else {
-                        LinearLayout l2 = new LinearLayout(getContext());
                         l2.setBackgroundResource(R.mipmap.hen_point);
-                        Params.leftMargin = 13;
+                        Params.leftMargin = 15;
                         l2.setLayoutParams(Params);
                         ll.addView(l2);
                         dot.add(l2);
@@ -128,5 +169,10 @@ public class Home_pager_content_Fragment extends Fragment {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
+    }
+
+    //处理轮播图自动滚动
+    public class MyThrad extends Thread{
+
     }
 }

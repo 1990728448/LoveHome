@@ -11,6 +11,9 @@
 
         <activity android:name=".fragment.homepager.activity.Home_Pager_to_item"/>
         <activity android:name=".fragment.homepager.activity.Home_Pager_MyNews"/>
+        <activity android:name=".fragment.homepager.activity.Home_business_details"/>
+        <activity android:name=".fragment.homepager.activity.Home_laoxianghui"/>
+        <activity android:name=".fragment.homepager.activity.Home_waimaihui"/>
 
     </application>
 
