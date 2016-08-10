@@ -33,7 +33,7 @@ public class User_login extends Activity {
         bnt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(User_login.this,User_forgetpassword.class);
+                Intent intent = new Intent(User_login.this,User_forgetpasssword.class);
                 startActivity(intent);
 
             }
