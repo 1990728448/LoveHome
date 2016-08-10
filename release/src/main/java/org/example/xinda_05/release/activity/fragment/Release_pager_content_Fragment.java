@@ -52,27 +52,21 @@ public class Release_pager_content_Fragment extends Fragment{
     //release_gongzuo_layout.xml 工作
     //release_tiaozao_layout.xml  跳蚤
     //release_currency_layout.xml  娱乐-车-婚庆-装修-教育-百度-商务-外卖汇-其他
-    String [][] msg={{"酒店","饭店","西点","夜宵","外卖","茶馆","零食特产","其他","小吃"},//美食
-                     {"KTV","电影","酒吧","宾馆","足底按摩","其他"},//娱乐
-                     {"买卖","租赁","其他"},//房产
-                     {"买卖","租赁","代驾","学车","修理","其他"},//车
-                     {"礼仪庆典","婚车","摄影","鲜花","其他"},//婚庆
-                     {"家/工装","建材家居","装修工人","其他"},//装修
-                     {"学校","培训","家教","其他"},//教育
-                     {"全职","兼职","钟点工","临时工","其他"},//工作
-                      //百度
+    String [][] msg={{"酒店","饭店","西点","夜宵","外卖","茶馆","零食特产","其他","小吃"},
+                     {"KTV","电影","酒吧","宾馆","足底按摩","其他"},
+                     {"买卖","租赁","其他"},
+                     {"买卖","租赁","代驾","学车","修理","其他"},
+                     {"礼仪庆典","婚车","摄影","鲜花","其他"},
+                     {"家/工装","建材家居","装修工人","其他"},
+                     {"学校","培训","家教","其他"},
+                     {"全职","兼职","钟点工","临时工","其他"},
                      {"手机","服装","食品","酒水","数码电器","母婴玩具","美容美发","珠宝配饰","办公耗材","家居家纺","日用品","其他"},
-                     //跳蚤
                      {"家具电器","服装箱包","手表珠宝","办公设施","其他"},
-                    //商务
+
                      {"投资担保","咨询顾问","演出会展","其他"},
-                    //便民
                      {"便民","其他"},
-                    //老乡会
                      {},
-                    //外卖汇
                      {"兰州拉面","沙县小吃","过桥米线","水煮活鱼","黄焖鸡米饭","衡阳螺蛳粉","其他"},
-                    //其他
                      {"家政","信息","旅游","运动","医疗","丧事","其他"}};
 
     @Override
@@ -105,9 +99,8 @@ public class Release_pager_content_Fragment extends Fragment{
                 ShowPopupWindow();
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int j, long l) {
-                        Log.e("TAG","点击了点击了");
-                        Log.e("TAG","点击了第几个"+j);
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Log.e("TAG","点击了第几个"+i);
 
 
                     }
