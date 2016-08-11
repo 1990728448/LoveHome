@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,7 +74,6 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        Log.e("TAG","图片地址"+image.get(i).getImg_url());
         Picasso.with(context).load(image.get(i).getImg_url()).into(holder.imageview_dianjia);
         holder.textview_dianming.setText(data.get(i).getMerchant_name());
         holder.textview_jiage.setText("￥ " + data.get(i).getPer_capita_consumption()+"/"+data.get(i).getMeasure_unit());
