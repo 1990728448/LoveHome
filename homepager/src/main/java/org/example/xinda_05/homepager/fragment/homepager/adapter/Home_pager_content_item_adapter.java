@@ -14,7 +14,7 @@ import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_item_e
 
 import java.util.ArrayList;
 
-/**
+/*
  * Created by Jerry Mouse on 2016/8/9.
  */
 public class Home_pager_content_item_adapter extends PagerAdapter {
