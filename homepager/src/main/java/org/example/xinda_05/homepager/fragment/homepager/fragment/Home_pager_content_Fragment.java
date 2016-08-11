@@ -1,6 +1,7 @@
 package org.example.xinda_05.homepager.fragment.homepager.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.homepager.R;
+import org.example.xinda_05.homepager.fragment.homepager.activity.Home_laoxianghui;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_LunBo_ViewPager_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_content_item_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_item_entity;
@@ -38,7 +40,7 @@ public class Home_pager_content_Fragment extends Fragment {
     private ViewPager viewPager;
     private ArrayList<LinearLayout> dot;
     private ViewPager HomePager_content_ViewPager;
-    private LinearLayout HomePager_content_ViewPager_Dot;
+    private LinearLayout HomePager_content_ViewPager_Dot,HomePager_content_LXH,HomePager_content_WMH;
     private int pageNum;
 
 
@@ -108,11 +110,30 @@ public class Home_pager_content_Fragment extends Fragment {
         ll = (LinearLayout) view.findViewById(R.id.HomePager_content_Item_GroupDot);
         HomePager_content_ViewPager= (ViewPager) view.findViewById(R.id.HomePager_content_ViewPager);
         HomePager_content_ViewPager_Dot= (LinearLayout) view.findViewById(R.id.HomePager_content_ViewPager_Dot);
+        HomePager_content_LXH= (LinearLayout) view.findViewById(R.id.HomePager_content_LXH);
+        HomePager_content_WMH= (LinearLayout) view.findViewById(R.id.HomePager_content_WMH);
+
+        HomePager_content_LXH.setOnClickListener(change);
+        HomePager_content_WMH.setOnClickListener(change);
 
         dot = new ArrayList<>();
         LunBoDot=new ArrayList<>();
-
     }
+
+    //子项布局的点击事件
+    View.OnClickListener change=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(getContext(), Home_laoxianghui.class);
+            int i = view.getId();
+            if (i == R.id.HomePager_content_LXH) {
+                intent.putExtra("name","老乡会");
+            }else if(i==R.id.HomePager_content_WMH){
+                intent.putExtra("name","外卖汇");
+            }
+            getActivity().startActivity(intent);
+        }
+    };
 
 
     //网络获取列表，填充至界面

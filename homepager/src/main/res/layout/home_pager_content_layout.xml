@@ -75,6 +75,7 @@
                 android:layout_height="100dp">
 
                 <LinearLayout
+                    android:id="@+id/HomePager_content_LXH"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -91,6 +92,7 @@
                     android:background="#E5E5E5" />
 
                 <LinearLayout
+                    android:id="@+id/HomePager_content_WMH"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
