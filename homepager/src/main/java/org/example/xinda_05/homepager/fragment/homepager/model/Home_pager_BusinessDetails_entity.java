@@ -20,7 +20,6 @@ public class Home_pager_BusinessDetails_entity {
     private String per_capita_consumption;
     private String phone;
     private String user_id;
-    private String img_url;
 
     @Override
     public String toString() {
@@ -41,16 +40,7 @@ public class Home_pager_BusinessDetails_entity {
                 ", per_capita_consumption='" + per_capita_consumption + '\'' +
                 ", phone='" + phone + '\'' +
                 ", user_id='" + user_id + '\'' +
-                ", img_url='" + img_url + '\'' +
                 '}';
-    }
-
-    public String getImg_url() {
-        return img_url;
-    }
-
-    public void setImg_url(String img_url) {
-        this.img_url = img_url;
     }
 
     public String getBusiness_location() {

@@ -1,8 +1,10 @@
 package org.example.xinda_05.homepager.fragment.homepager.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -10,6 +12,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.example.xinda_05.homepager.R;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_laoxianghui_listview_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_BusinessDetails_entity;
+import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_bussinessImage_entity;
 import org.example.xinda_05.homepager.fragment.homepager.util.GsonUtil;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONObject;
@@ -36,6 +39,7 @@ import cz.msebera.android.httpclient.Header;
 public class Home_laoxianghui extends Activity{
 
     private ListView Home_pager_LXH_listView;
+    private TextView HomePager_LXH_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +47,18 @@ public class Home_laoxianghui extends Activity{
         setContentView(R.layout.home_laoxianghui_layout);
 
         Home_pager_LXH_listView= (ListView) findViewById(R.id.Home_pager_LXH_listView);
+        HomePager_LXH_name= (TextView) findViewById(R.id.HomePager_LXH_name);
+        Intent intent=getIntent();
+        HomePager_LXH_name.setText(intent.getStringExtra("name"));
 
 
         HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
-                Toast.makeText(Home_laoxianghui.this, "response:" + response, Toast.LENGTH_SHORT).show();
-
                 ArrayList<Home_pager_BusinessDetails_entity> info= GsonUtil.Gson1(response);
-
-
-                Home_pager_LXH_listView.setAdapter(new Home_laoxianghui_listview_adapter(info,Home_laoxianghui.this));
-
-
-
-
-
+                ArrayList<Home_pager_bussinessImage_entity> image=GsonUtil.GsonImage(response);
+                Home_pager_LXH_listView.setAdapter(new Home_laoxianghui_listview_adapter(info,image,Home_laoxianghui.this));
             }
 
             @Override
