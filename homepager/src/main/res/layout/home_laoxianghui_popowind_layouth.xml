@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dip"
+    android:orientation="vertical"
+    android:background="#F3F3F3"
+
+    >
+    <TextView
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:text="长沙"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"/>
+    <TextView
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:text="上海"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"/>
+    <TextView
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:text="北京"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"/>
+    <TextView
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:text="丽江"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"/>
+
+</LinearLayout>

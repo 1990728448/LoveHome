@@ -12,6 +12,7 @@
         android:layout_height="50dp"
         >
         <ImageButton
+            android:id="@+id/user_registration_layout_fanhui"
             android:gravity="center_vertical"
             android:layout_height="32dp"
             android:layout_width="wrap_content"
