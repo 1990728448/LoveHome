@@ -6,7 +6,6 @@ import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +38,10 @@ public class MainActivity extends ActionBarActivity implements WaterDropListView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        waterDropListView = (WaterDropListView) findViewById(R.id.waterdrop_listview);
-        waterDropListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData()));
-        waterDropListView.setWaterDropListViewListener(this);
-        waterDropListView.setPullLoadEnable(true);
+//        waterDropListView = (WaterDropListView) findViewById(R.id.waterdrop_listview);
+//        waterDropListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData()));
+//        waterDropListView.setWaterDropListViewListener(this);
+//        waterDropListView.setPullLoadEnable(true);
     }
 
     @Override
