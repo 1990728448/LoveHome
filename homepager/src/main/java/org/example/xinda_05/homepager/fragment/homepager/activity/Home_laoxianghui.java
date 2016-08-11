@@ -2,8 +2,14 @@ package org.example.xinda_05.homepager.fragment.homepager.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,15 +47,29 @@ public class Home_laoxianghui extends Activity{
     private ListView Home_pager_LXH_listView;
     private TextView HomePager_LXH_name;
 
+    PopupWindow  pop;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_laoxianghui_layout);
 
+        LinearLayout fanhui= (LinearLayout) findViewById(R.id.HomePager_search_shop_back);
+        LinearLayout shuaxin= (LinearLayout) findViewById(R.id.HomePager_search_shop_Search);
+        final LinearLayout popowind= (LinearLayout) findViewById(R.id.HomePager_popowind);
+
+
+
+
+
+
+
         Home_pager_LXH_listView= (ListView) findViewById(R.id.Home_pager_LXH_listView);
         HomePager_LXH_name= (TextView) findViewById(R.id.HomePager_LXH_name);
-        Intent intent=getIntent();
+        final Intent intent=getIntent();
         HomePager_LXH_name.setText(intent.getStringExtra("name"));
+
+
 
 
         HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler(){
@@ -67,5 +87,25 @@ public class Home_laoxianghui extends Activity{
                 Toast.makeText(Home_laoxianghui.this, "请求失败", Toast.LENGTH_SHORT).show();
             }
         });
+
+        fanhui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        popowind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view= LayoutInflater.from(Home_laoxianghui.this).inflate(R.layout.home_laoxianghui_popowind_layouth,null);
+                pop=new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+                pop.setBackgroundDrawable(new BitmapDrawable());
+                pop.setFocusable(true);
+                pop.setOutsideTouchable(true);
+                pop.showAsDropDown(view,0,190);
+            }
+        });
+
     }
+
 }
