@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="100dp"
+    android:id="@+id/Home_laoxianghui_list">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -17,7 +19,8 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:src="@mipmap/defualt"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

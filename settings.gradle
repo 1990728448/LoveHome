@@ -1,1 +1,1 @@
-include ':app', ':release', ':my', ':util', ':homepager', ':user'
+include ':app', ':release', ':my', ':util', ':homepager', ':user', 'WaterDropListView'

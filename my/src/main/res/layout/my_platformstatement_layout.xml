@@ -6,29 +6,45 @@
     android:orientation="vertical"
     android:background="#ffffff">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#51C477"
-        android:gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#51C477">
         <ImageView
             android:id="@+id/back"
-            android:layout_gravity="left"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@mipmap/xiaoyuhao"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/back_icon"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_statement"
-            android:textSize="35dp"
-            android:textColor="#ffffff"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
-            android:background="#51C477"/>
-
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:text="@string/string_statement"/>
+        <LinearLayout
+            android:id="@+id/popwind"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#000000"
+        android:text="《爱家乡》平台申明"
+        android:gravity="center"/>
     <TextView
         android:id="@+id/text6"
         android:layout_width="match_parent"
@@ -36,8 +52,7 @@
         android:textStyle="bold"
         android:textSize="18dp"
         android:textColor="#000000"
-        android:text="               《爱家乡》平台申明
-  欢迎使用爱家乡。
+        android:text="  欢迎使用爱家乡。
 
   爱家乡是杭州五克商务公司（以下简称我们)所运营的便民信息发布软件，旨在最准确、最全面收集同一地区生活类信息，从而服务当地人，实现特定区域内人与人互动更频繁、信息来往更高效。我们致力于建立一个本地、简单且搞笑的使用环境。希望您在使用时与我们一同努力。
 

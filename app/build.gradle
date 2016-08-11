@@ -29,4 +29,5 @@ dependencies {
     compile project(':release')
     compile project(':user')
     compile project(':util')
+    compile project(':WaterDropListView')
 }

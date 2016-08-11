@@ -7,9 +7,9 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#4dc18c">
+            android:background="#51C477">
             <ImageView
-                android:id="@+id/imgBtn1"
+                android:id="@+id/back"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -24,7 +24,7 @@
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:textColor="#FFFFFF"
-                android:text="我的发布"/>
+                android:text="@string/string_release"/>
             <LinearLayout
                 android:id="@+id/popwind"
                 android:layout_width="match_parent"

@@ -16,9 +16,12 @@
             android:id="@+id/HomePager_search_shop_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageButton
+
                 android:layout_width="14dp"
                 android:layout_height="22dp"
                 android:layout_gravity="center"
@@ -43,7 +46,9 @@
         <LinearLayout
             android:id="@+id/HomePager_search_shop_Search"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageButton
                 android:layout_width="20dp"
@@ -77,6 +82,7 @@
             android:background="#E8E8E8"/>
 
         <LinearLayout
+            android:id="@+id/HomePager_Store_allStore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -107,7 +113,7 @@
         android:background="#ffffff"
         android:orientation="horizontal">
 
-        <ListView
+        <medusa.theone.waterdroplistview.view.WaterDropListView
             android:id="@+id/Home_pager_LXH_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
