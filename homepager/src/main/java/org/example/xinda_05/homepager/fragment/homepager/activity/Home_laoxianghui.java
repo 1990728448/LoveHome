@@ -1,6 +1,7 @@
 package org.example.xinda_05.homepager.fragment.homepager.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class Home_laoxianghui extends Activity{
 
     private ListView Home_pager_LXH_listView;
     private TextView HomePager_LXH_name;
+    private LinearLayout HomePager_Store_allStore;
 
     PopupWindow  pop;
 
@@ -56,21 +58,15 @@ public class Home_laoxianghui extends Activity{
 
         LinearLayout fanhui= (LinearLayout) findViewById(R.id.HomePager_search_shop_back);
         LinearLayout shuaxin= (LinearLayout) findViewById(R.id.HomePager_search_shop_Search);
-        final LinearLayout popowind= (LinearLayout) findViewById(R.id.HomePager_popowind);
+        HomePager_Store_allStore= (LinearLayout) findViewById(R.id.HomePager_Store_allStore);
+//        LinearLayout popowind= (LinearLayout) findViewById(R.id.home_popowind_layouth);
 
-
-
-
-
-
+        HomePager_Store_allStore.setOnClickListener(new storeChange(this));
 
         Home_pager_LXH_listView= (ListView) findViewById(R.id.Home_pager_LXH_listView);
         HomePager_LXH_name= (TextView) findViewById(R.id.HomePager_LXH_name);
         final Intent intent=getIntent();
         HomePager_LXH_name.setText(intent.getStringExtra("name"));
-
-
-
 
         HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler(){
             @Override
@@ -94,18 +90,34 @@ public class Home_laoxianghui extends Activity{
                 finish();
             }
         });
-        popowind.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view= LayoutInflater.from(Home_laoxianghui.this).inflate(R.layout.home_laoxianghui_popowind_layouth,null);
-                pop=new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
-                pop.setBackgroundDrawable(new BitmapDrawable());
-                pop.setFocusable(true);
-                pop.setOutsideTouchable(true);
-                pop.showAsDropDown(view,0,190);
-            }
-        });
+//        popowind.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                view= LayoutInflater.from(Home_laoxianghui.this).inflate(R.layout.home_laoxianghui_popowind_layouth,null);
+//                pop=new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+//                pop.setBackgroundDrawable(new BitmapDrawable());
+//                pop.setFocusable(true);
+//                pop.setOutsideTouchable(true);
+//                pop.showAsDropDown(view,0,190);
+//            }
+//        });
+    }
+    private class storeChange implements View.OnClickListener{
 
+        private Context context;
+
+        public storeChange(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void onClick(View view) {
+            View view1= LayoutInflater.from(context).inflate(R.layout.home_laoxianghui_popowind_layouth,null);
+            PopupWindow pop=new PopupWindow(view1, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+            pop.setBackgroundDrawable(new BitmapDrawable());
+            pop.setFocusable(true);
+            pop.showAsDropDown(view,0,0);
+        }
     }
 
 }

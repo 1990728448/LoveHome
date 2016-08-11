@@ -4,9 +4,10 @@
     android:layout_height="200dip"
     android:orientation="vertical"
     android:background="#F3F3F3"
-
+    android:id="@+id/home_popowind_layouth"
     >
     <TextView
+
         android:textSize="18dp"
         android:gravity="center"
         android:layout_width="match_parent"

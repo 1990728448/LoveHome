@@ -82,7 +82,7 @@
             android:background="#E8E8E8"/>
 
         <LinearLayout
-            android:id="@+id/HomePager_popowind"
+            android:id="@+id/HomePager_Store_allStore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -14,9 +14,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.example.xinda_05.homepager.R;
+import org.example.xinda_05.homepager.fragment.homepager.activity.Home_business_details;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_BusinessDetails_entity;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_bussinessImage_entity;
 
@@ -69,7 +71,7 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
             holder.textview_didian = (TextView) view.findViewById(R.id.Home_laoxianghui_list_dizhi);
             holder.textview_shijian1 = (TextView) view.findViewById(R.id.Home_laoxianghui_list_Time);
             holder.Home_laoxianghui_list_call = (ImageButton) view.findViewById(R.id.Home_laoxianghui_list_call);
-
+            holder.Home_laoxianghui_list= (RelativeLayout)view.findViewById(R.id.Home_laoxianghui_list);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -79,6 +81,15 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
         holder.textview_jiage.setText("￥ " + data.get(i).getPer_capita_consumption()+"/"+data.get(i).getMeasure_unit());
         holder.textview_didian.setText(data.get(i).getBusiness_location());
         holder.textview_shijian1.setText(data.get(i).getOpening_time() + "-" + data.get(i).getClosing_time());
+
+        holder.Home_laoxianghui_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, Home_business_details.class);
+                context.startActivity(intent);
+            }
+        });
+
 
         holder.Home_laoxianghui_list_call.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,5 +130,6 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
         private ImageButton Home_laoxianghui_list_call;
         public TextView textview_dianming,textview_jiage,textview_didian,textview_shijian1;
 
+        public RelativeLayout Home_laoxianghui_list;
     }
 }
