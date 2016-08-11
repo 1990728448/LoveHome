@@ -1,10 +1,17 @@
 package org.example.xinda_05.homepager.fragment.homepager.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,11 +47,11 @@ import medusa.theone.waterdroplistview.view.WaterDropListView;
 *、
  */
 
-public class Home_laoxianghui extends Activity implements WaterDropListView.IWaterDropListViewListener{
+public class Home_laoxianghui extends Activity implements WaterDropListView.IWaterDropListViewListener {
 
-    //private ListView Home_pager_LXH_listView;
     private TextView HomePager_LXH_name;
     private WaterDropListView Home_pager_LXH_listView;
+    private LinearLayout HomePager_Store_allStore;
 
 
     @Override
@@ -52,21 +59,39 @@ public class Home_laoxianghui extends Activity implements WaterDropListView.IWat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_laoxianghui_layout);
 
-        Home_pager_LXH_listView= (WaterDropListView) findViewById(R.id.Home_pager_LXH_listView);
+
+        Home_pager_LXH_listView = (WaterDropListView) findViewById(R.id.Home_pager_LXH_listView);
         Home_pager_LXH_listView.setWaterDropListViewListener(this);
         Home_pager_LXH_listView.setPullLoadEnable(true);
-        HomePager_LXH_name= (TextView) findViewById(R.id.HomePager_LXH_name);
-        Intent intent=getIntent();
+        LinearLayout shuaxin = (LinearLayout) findViewById(R.id.HomePager_search_shop_Search);
+        HomePager_Store_allStore= (LinearLayout) findViewById(R.id.HomePager_Store_allStore);
+
+        HomePager_Store_allStore.setOnClickListener(new storeChange(this));
+
+        Home_pager_LXH_listView = (WaterDropListView) findViewById(R.id.Home_pager_LXH_listView);
+        Home_pager_LXH_listView.setWaterDropListViewListener(this);
+        Home_pager_LXH_listView.setPullLoadEnable(true);
+        HomePager_LXH_name = (TextView) findViewById(R.id.HomePager_LXH_name);
+        Intent intent = getIntent();
         HomePager_LXH_name.setText(intent.getStringExtra("name"));
 
+        //结束当前界面
+        LinearLayout fanhui = (LinearLayout) findViewById(R.id.HomePager_search_shop_back);
+        fanhui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
-        HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler(){
+
+        HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
-                ArrayList<Home_pager_BusinessDetails_entity> info= GsonUtil.Gson1(response);
-                ArrayList<Home_pager_bussinessImage_entity> image=GsonUtil.GsonImage(response);
-                Home_pager_LXH_listView.setAdapter(new Home_laoxianghui_listview_adapter(info,image,Home_laoxianghui.this));
+                ArrayList<Home_pager_BusinessDetails_entity> info = GsonUtil.Gson1(response);
+                ArrayList<Home_pager_bussinessImage_entity> image = GsonUtil.GsonImage(response);
+                Home_pager_LXH_listView.setAdapter(new Home_laoxianghui_listview_adapter(info, image, Home_laoxianghui.this));
             }
 
             @Override
@@ -77,11 +102,12 @@ public class Home_laoxianghui extends Activity implements WaterDropListView.IWat
         });
     }
 
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case 1:
                     Home_pager_LXH_listView.stopRefresh();
                     Toast.makeText(Home_laoxianghui.this, "刷新成功", Toast.LENGTH_SHORT).show();
@@ -125,5 +151,22 @@ public class Home_laoxianghui extends Activity implements WaterDropListView.IWat
                 }
             }
         });
+    }
+    private class storeChange implements View.OnClickListener{
+
+        private Context context;
+
+        public storeChange(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void onClick(View view) {
+            View view1= LayoutInflater.from(context).inflate(R.layout.home_laoxianghui_popowind_layouth,null);
+            PopupWindow pop=new PopupWindow(view1, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+            pop.setBackgroundDrawable(new BitmapDrawable());
+            pop.setFocusable(true);
+            pop.showAsDropDown(view,0,0);
+        }
     }
 }
