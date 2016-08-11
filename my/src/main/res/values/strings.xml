@@ -10,4 +10,5 @@
     <string name="string_share">分享软件</string>
     <string name="string_Forgotpassword">忘记密码</string>Clear the cache
     <string name="string_clearcache">清除缓存</string>
+    <string name="string_login">登录</string>
 </resources>

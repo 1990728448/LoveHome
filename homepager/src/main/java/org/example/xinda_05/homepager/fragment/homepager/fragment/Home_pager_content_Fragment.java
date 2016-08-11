@@ -1,6 +1,7 @@
 package org.example.xinda_05.homepager.fragment.homepager.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,15 +12,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.homepager.R;
+import org.example.xinda_05.homepager.fragment.homepager.activity.Home_laoxianghui;
+import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_laoxianghui_listview_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_LunBo_ViewPager_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_content_item_adapter;
+import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_BusinessDetails_entity;
+import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_bussinessImage_entity;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_item_entity;
 import org.example.xinda_05.homepager.fragment.homepager.util.GsonUtil;
 import org.example.xinda_05.util.util.HttpUtil;
+import org.example.xinda_05.util.util.MyListView;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -40,7 +48,8 @@ public class Home_pager_content_Fragment extends Fragment {
     private ViewPager HomePager_content_ViewPager;
     private LinearLayout HomePager_content_ViewPager_Dot;
     private int pageNum;
-
+    private org.example.xinda_05.util.util.MyListView myListView;
+    private RelativeLayout HomePager_content_LXH,HomePager_content_WMH;
 
     private int[] image= new int[]{R.mipmap.lunbo1, R.mipmap.lunbo2, R.mipmap.lunbo3};
 
@@ -99,6 +108,9 @@ public class Home_pager_content_Fragment extends Fragment {
         //启动线程轮播
         new MyThrad().start();
 
+        //下方数据列表
+        getListData(getActivity());
+
         return view;
     }
 
@@ -108,11 +120,32 @@ public class Home_pager_content_Fragment extends Fragment {
         ll = (LinearLayout) view.findViewById(R.id.HomePager_content_Item_GroupDot);
         HomePager_content_ViewPager= (ViewPager) view.findViewById(R.id.HomePager_content_ViewPager);
         HomePager_content_ViewPager_Dot= (LinearLayout) view.findViewById(R.id.HomePager_content_ViewPager_Dot);
+        HomePager_content_LXH= (RelativeLayout) view.findViewById(R.id.HomePager_content_LXH);
+        HomePager_content_WMH= (RelativeLayout) view.findViewById(R.id.HomePager_content_WMH);
+
+        HomePager_content_LXH.setOnClickListener(change);
+        HomePager_content_WMH.setOnClickListener(change);
+
+        myListView= (MyListView) view.findViewById(R.id.HomePager_content_ListView);
 
         dot = new ArrayList<>();
         LunBoDot=new ArrayList<>();
-
     }
+
+    //子项布局的点击事件
+    View.OnClickListener change=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(getContext(), Home_laoxianghui.class);
+            int i = view.getId();
+            if (i == R.id.HomePager_content_LXH) {
+                intent.putExtra("name","老乡会");
+            }else if(i==R.id.HomePager_content_WMH){
+                intent.putExtra("name","外卖汇");
+            }
+            getActivity().startActivity(intent);
+        }
+    };
 
 
     //网络获取列表，填充至界面
@@ -192,6 +225,25 @@ public class Home_pager_content_Fragment extends Fragment {
             }
         }
     };
+
+    //下方listView获取数据
+    private void getListData(final Context context) {
+        HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                ArrayList<Home_pager_BusinessDetails_entity> info= GsonUtil.Gson1(response);
+                ArrayList<Home_pager_bussinessImage_entity> image=GsonUtil.GsonImage(response);
+                myListView.setAdapter(new Home_laoxianghui_listview_adapter(info,image,context));
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(context, "请求失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     //处理轮播图自动滚动
     public class MyThrad extends Thread{

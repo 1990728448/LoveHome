@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.example.xinda_05.homepager">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -11,9 +12,8 @@
 
         <activity android:name=".fragment.homepager.activity.Home_Pager_to_item"/>
         <activity android:name=".fragment.homepager.activity.Home_Pager_MyNews"/>
-        <activity android:name=".fragment.homepager.activity.Home_business_details"/>
         <activity android:name=".fragment.homepager.activity.Home_laoxianghui"/>
-        <activity android:name=".fragment.homepager.activity.Home_waimaihui"/>
+        <activity android:name=".fragment.homepager.activity.Home_business_details"/>
 
     </application>
 
