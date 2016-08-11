@@ -65,7 +65,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="阿里巴巴"
+                android:hint="阿里巴巴"
                 android:background="@null"
                 />
         </LinearLayout>
@@ -92,7 +92,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="请填写价格"
+                android:hint="请填写价格"
                 android:background="@null"
                 />
             <TextView
@@ -121,7 +121,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="请填写好计量单位（例如小时，）"
+                android:hint="请填写好计量单位（例如小时，）"
                 android:background="@null"
                />
         </LinearLayout>
@@ -144,7 +144,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="请填写好地址"
+                android:hint="请填写好地址"
                 android:background="@null"
                />
         </LinearLayout>
@@ -167,7 +167,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="请填写好联系人"
+                android:hint="请填写好联系人"
                 android:background="@null"
                 />
         </LinearLayout>
@@ -190,7 +190,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="请填写正确的联系方式（外地带“区号”）"
+                android:hint="请填写正确的联系方式（外地带“区号”）"
                 android:background="@null"
                 />
 
@@ -206,7 +206,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="房源描述含基本信息"
+                android:hint="房源描述含基本信息"
                 android:background="@null"
                 />
         </LinearLayout>

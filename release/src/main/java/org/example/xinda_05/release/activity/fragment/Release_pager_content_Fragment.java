@@ -2,6 +2,7 @@ package org.example.xinda_05.release.activity.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -27,6 +28,13 @@ import android.widget.Toast;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.release.R;
+import org.example.xinda_05.release.activity.activity.Release_Bianming_Activity;
+import org.example.xinda_05.release.activity.activity.Release_Currency_Activity;
+import org.example.xinda_05.release.activity.activity.Release_Fangchan_Activity;
+import org.example.xinda_05.release.activity.activity.Release_Fangchan_Zuping_Activity;
+import org.example.xinda_05.release.activity.activity.Release_Gongzuo_Activity;
+import org.example.xinda_05.release.activity.activity.Release_Meishi_Activity;
+import org.example.xinda_05.release.activity.activity.Release_Tiaozao_Activity;
 import org.example.xinda_05.release.activity.adapter.MainActivity_Release_Adapter;
 import org.example.xinda_05.release.activity.entity.Release_pager_entity;
 import org.example.xinda_05.release.activity.util.GsonUtil;
@@ -105,16 +113,56 @@ int count;
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int j, long l) {
-
-
-                        Log.e("TAG","点击了第几个"+j);
-
-
+                        if (grid==0){
+                            // release_meishi_layout.xml  美食
+                        Intent intent=new Intent(getActivity(),Release_Meishi_Activity.class);
+                        startActivity(intent);
+                        }else if (grid==1||grid==3||grid==4||grid==5||grid==6||grid==8||grid==10||grid==13||grid==14){
+                            //release_currency_layout.xml  娱乐-车-婚庆-装修-教育-百度-商务-外卖汇-其他
+                            Intent intent=new Intent(getActivity(),Release_Currency_Activity.class);
+                            startActivity(intent);
+                            pop.dismiss();
+                        }else if (grid==11){
+                            //release_bianming_layout.xml  便民
+                            Intent intent=new Intent(getActivity(),Release_Bianming_Activity.class);
+                            startActivity(intent);
+                            pop.dismiss();
+                        }else if (grid==2&&i==0||i==2){
+                            //release_fangchan_layout.xml房产-买卖,其他
+                            Intent intent=new Intent(getActivity(),Release_Fangchan_Activity.class);
+                            startActivity(intent);
+                            pop.dismiss();
+                        }else if (grid==2&&i==1){
+                            //release_fangchan_zuping_layout.xml房产-租赁
+                            Intent intent=new Intent(getActivity(),Release_Fangchan_Zuping_Activity.class);
+                            startActivity(intent);
+                            pop.dismiss();
+                        }else if (grid==7){
+                            //release_gongzuo_layout.xml 工作
+                            Intent intent=new Intent(getActivity(),Release_Gongzuo_Activity.class);
+                            startActivity(intent);
+                            pop.dismiss();
+                        }else if (grid==9){
+                            //release_tiaozao_layout.xml  跳蚤
+                            Intent intent=new Intent(getActivity(),Release_Tiaozao_Activity.class);
+                            startActivity(intent);
+                            pop.dismiss();
+                        }else {
+                            Toast.makeText(getActivity(), "为空", Toast.LENGTH_SHORT).show();
+                            pop.dismiss();
+                        }
                     }
                 });
-
+                error_btn=(ImageView)view3.findViewById(R.id.pop_error);
+                error_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        pop.dismiss();
+                    }
+                });
             }
         });
+
     }
     //为获取数据做操作
     public void initData() {
@@ -181,9 +229,18 @@ int count;
             return view;
         }
     }
-
     private class ViewHolder{
         TextView PopupWindow_listview_text;
     }
-
+    /* public  class OclickListItem implements AdapterView.OnItemClickListener{
+         int n;
+         public OclickListItem(int i) {
+             this.n=i;
+            Toast.makeText(getActivity(),"当前是"+n, Toast.LENGTH_SHORT).show();
+         }
+         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+             Intent intent=new Intent(getActivity(),Release_Currency_Activity.class);
+             startActivity(intent);
+         }
+     }*/
 }

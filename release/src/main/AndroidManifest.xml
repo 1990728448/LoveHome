@@ -5,7 +5,13 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-
+      <activity android:name=".activity.activity.Release_Bianming_Activity"/>
+        <activity android:name=".activity.activity.Release_Currency_Activity"/>
+        <activity android:name=".activity.activity.Release_Fangchan_Activity"/>
+        <activity android:name=".activity.activity.Release_Fangchan_Zuping_Activity"/>
+        <activity android:name=".activity.activity.Release_Gongzuo_Activity"/>
+        <activity android:name=".activity.activity.Release_Meishi_Activity"/>
+        <activity android:name=".activity.activity.Release_Tiaozao_Activity"/>
     </application>
 
 </manifest>
