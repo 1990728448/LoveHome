@@ -10,6 +10,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.example.xinda_05.homepager.R;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_laoxianghui_listview_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_BusinessDetails_entity;
+import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_bussinessImage_entity;
 import org.example.xinda_05.homepager.fragment.homepager.util.GsonUtil;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONObject;
@@ -49,17 +50,9 @@ public class Home_laoxianghui extends Activity{
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
-                Toast.makeText(Home_laoxianghui.this, "response:" + response, Toast.LENGTH_SHORT).show();
-
                 ArrayList<Home_pager_BusinessDetails_entity> info= GsonUtil.Gson1(response);
-
-
-                Home_pager_LXH_listView.setAdapter(new Home_laoxianghui_listview_adapter(info,Home_laoxianghui.this));
-
-
-
-
-
+                ArrayList<Home_pager_bussinessImage_entity> image=GsonUtil.GsonImage(response);
+                Home_pager_LXH_listView.setAdapter(new Home_laoxianghui_listview_adapter(info,image,Home_laoxianghui.this));
             }
 
             @Override
