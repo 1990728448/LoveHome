@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import org.example.xinda_05.my.My_Jump.My_MessageActivity;
 import org.example.xinda_05.my.My_Jump.My_StatementActivitiy;
 import org.example.xinda_05.my.My_Jump.My_aboutActivity;
 import org.example.xinda_05.my.My_Jump.My_collectionActivity;
+import org.example.xinda_05.my.My_Jump.My_pwdActivity;
 import org.example.xinda_05.my.My_Jump.My_releaseActivity;
 import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
 
@@ -20,45 +22,71 @@ import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
 /**
  * Created by CYLL on 2016/8/9.
  */
-public class My_personal_HomePageFragment extends Fragment{
+public class My_personal_HomePageFragment extends Fragment {
     @Nullable
-    View.OnClickListener personclick=new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            int persintag = Integer.parseInt(view.getTag().toString());
-            Intent persintent=new Intent();
-            switch (persintag){
-                case 0:{
-                    persintent.setClass(getActivity(),My_releaseActivity.class);
-                }
-                case 1:{
-                    persintent.setClass(getActivity(),My_thedraftActivity.class);
-                }
-                case 2:{
-                    persintent.setClass(getActivity(), My_collectionActivity.class);
-                }
-                case 3:{
-                    persintent.setClass(getActivity(),My_MessageActivity.class);
-                }
-                case 4:{
-                    persintent.setClass(getActivity(), My_StatementActivitiy.class);
-                }
-                case 5:{
-                    persintent.setClass(getActivity(), My_aboutActivity.class);
-                }
-            }
-            startActivity(persintent);
-        }
-    };
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.my_homepage_layout,null);
-       // LinearLayout perlayout1= (LinearLayout) view.findViewById(R.id.person_mypublish_intent);
-        LinearLayout layoutuser= (LinearLayout) view.findViewById(R.id.user_intent_layout);
-        layoutuser.setOnClickListener(personclick);
-  //      perlayout1.setOnClickListener(personclick);
-        layoutuser.setTag(0);
-  //      perlayout1.setTag(1);
-        return view;
+     LinearLayout lat1,lat2,lat3,lat4,lat5,lat6,lat7;
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.my_homepage_layout, null);
+        lat1=(LinearLayout) view.findViewById(R.id.person_mypublish_intent);
+        lat2=(LinearLayout)view.findViewById(R.id.person_mypublish_intent1);
+        lat3=(LinearLayout)view.findViewById(R.id.person_mypublish_intent2);
+        lat4=(LinearLayout)view.findViewById(R.id.person_mypublish_intent3);
+        lat5=(LinearLayout)view.findViewById(R.id.person_mypublish_intent4);
+        lat6=(LinearLayout)view.findViewById(R.id.person_mypublish_intent5);
+        lat7=(LinearLayout)view.findViewById(R.id.person_mypublish_intent7);
+        lat1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it1=new Intent(getActivity(),My_releaseActivity.class);
+                getActivity().startActivity(it1);
+            }
+        });
+        lat2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it2=new Intent(getActivity(),My_thedraftActivity.class);
+                getActivity().startActivity(it2);
+            }
+        });
+        lat3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it3=new Intent(getActivity(),My_collectionActivity.class);
+                getActivity().startActivity(it3);
+            }
+        });
+        lat4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it4=new Intent(getActivity(),My_MessageActivity.class);
+                getActivity().startActivity(it4);
+            }
+        });
+        lat5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it5=new Intent(getActivity(),My_StatementActivitiy.class);
+                getActivity().startActivity(it5);
+            }
+        });
+        lat6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it6=new Intent(getActivity(),My_aboutActivity.class);
+                getActivity().startActivity(it6);
+            }
+        });
+        lat7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it7=new Intent(getActivity(),My_pwdActivity.class);
+                getActivity().startActivity(it7);
+            }
+        });
+        return view;
     }
+
 }
+
+
