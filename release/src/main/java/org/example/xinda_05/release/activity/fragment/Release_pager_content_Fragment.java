@@ -1,6 +1,7 @@
 package org.example.xinda_05.release.activity.fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -16,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -42,9 +44,11 @@ import cz.msebera.android.httpclient.Header;
 public class Release_pager_content_Fragment extends Fragment{
     private View view2;
     private View view3;
-    private GridView gridview;
-    private ListView list;
+    private GridView gridview;//gridview的点击事件
+    private ListView list;//listview的点击事件
+    private ImageView error_btn;
     PopupWindow pop;
+    int grid;//用于点击listview中的item
     //release_meishi_layout.xml  美食
     //release_bianming_layout.xml  便民
     //release_fangchan_layout.xml房产-买卖,其他
@@ -86,25 +90,29 @@ public class Release_pager_content_Fragment extends Fragment{
         pop.showAtLocation(view2,Gravity.BOTTOM,0,0);//距离控件位置
     }
 
-
+int count;
     private void initView(){
         gridview =(GridView)view2.findViewById(R.id.release_gridview);
         //GridView中的数据的点击事件
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+                grid=i;
                 view3 = LayoutInflater.from(getActivity()).inflate(R.layout.release_popupwindow_list_layout, null);
                 list=(ListView) view3.findViewById(R.id.PopupWindow_listview);
                 list.setAdapter(new popInfo(getActivity(),msg,i));
                 ShowPopupWindow();
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Log.e("TAG","点击了第几个"+i);
+                    public void onItemClick(AdapterView<?> adapterView, View view, int j, long l) {
+
+
+                        Log.e("TAG","点击了第几个"+j);
 
 
                     }
                 });
+
             }
         });
     }
@@ -159,7 +167,7 @@ public class Release_pager_content_Fragment extends Fragment{
                 holder= (ViewHolder) view.getTag();
             }
             holder.PopupWindow_listview_text.setText(info[group][i]);
-
+           // Log.e("TAG","点击了第几个"+info[group][i]);
             //holder.PopupWindow_listview_text.setText(info[group][i]);
 //            views=LayoutInflater.from(getActivity()).inflate(R.layout.release_popupwindow_list_content_layout,null);
 //            LinearLayout PopupWindow_listview_text= (LinearLayout) views.findViewById(R.id.PopupWindow_listview_text);

@@ -24,18 +24,19 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@mipmap/back_icon"
-            android:padding="5dp" />
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/Release_item_layout_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:gravity="center"
             android:text="跳蚤-家具"
+            android:layout_marginTop="3dp"
             android:textColor="#FFFFFF"
-            android:textSize="32sp"/>
+            android:textSize="26sp"/>
     </LinearLayout>
     <!--照相机-->
     <ImageView
