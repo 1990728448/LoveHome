@@ -3,14 +3,9 @@ package org.example.xinda_05.homepager.fragment.homepager.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.PopupWindow;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +20,11 @@ import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import cz.msebera.android.httpclient.Header;
+import medusa.theone.waterdroplistview.view.WaterDropListView;
 
 /**
  * Created by ZhouZhicheng on 2016/8/9.
@@ -43,13 +41,13 @@ import cz.msebera.android.httpclient.Header;
 *、
  */
 
-public class Home_laoxianghui extends Activity{
+public class Home_laoxianghui extends Activity implements WaterDropListView.IWaterDropListViewListener{
 
-    private ListView Home_pager_LXH_listView;
+    //private ListView Home_pager_LXH_listView;
     private TextView HomePager_LXH_name;
+    private WaterDropListView Home_pager_LXH_listView;
     private LinearLayout HomePager_Store_allStore;
 
-    PopupWindow  pop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +62,13 @@ public class Home_laoxianghui extends Activity{
         HomePager_Store_allStore.setOnClickListener(new storeChange(this));
 
         Home_pager_LXH_listView= (ListView) findViewById(R.id.Home_pager_LXH_listView);
+        Home_pager_LXH_listView= (WaterDropListView) findViewById(R.id.Home_pager_LXH_listView);
+        Home_pager_LXH_listView.setWaterDropListViewListener(this);
+        Home_pager_LXH_listView.setPullLoadEnable(true);
         HomePager_LXH_name= (TextView) findViewById(R.id.HomePager_LXH_name);
-        final Intent intent=getIntent();
+        Intent intent=getIntent();
         HomePager_LXH_name.setText(intent.getStringExtra("name"));
+
 
         HttpUtil.getURLData().getAllStoreInfo(new JsonHttpResponseHandler(){
             @Override
@@ -83,12 +85,40 @@ public class Home_laoxianghui extends Activity{
                 Toast.makeText(Home_laoxianghui.this, "请求失败", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
-        fanhui.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    Home_pager_LXH_listView.stopRefresh();
+                    Toast.makeText(Home_laoxianghui.this, "刷新成功", Toast.LENGTH_SHORT).show();
+                    break;
+                case 2:
+                    Home_pager_LXH_listView.stopLoadMore();
+                    Toast.makeText(Home_laoxianghui.this, "没有更多了", Toast.LENGTH_SHORT).show();
+                    break;
             }
+
+        }
+    };
+
+    @Override
+    public void onRefresh() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                    handler.sendEmptyMessage(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         });
 //        popowind.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -120,4 +150,19 @@ public class Home_laoxianghui extends Activity{
         }
     }
 
+    @Override
+    public void onLoadMore() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                    handler.sendEmptyMessage(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }
