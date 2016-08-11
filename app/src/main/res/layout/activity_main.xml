@@ -18,7 +18,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="53dp"
         android:orientation="horizontal"
         android:background="#F0F0F0">
 
@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/HomePager_button_lovehome_image"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="5dp"
                 android:background="@mipmap/home"/>
             <TextView
@@ -53,8 +53,8 @@
 
             <ImageView
                 android:id="@+id/HomePager_button_shared_image"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="5dp"
                 android:background="@mipmap/publish"/>
             <TextView
@@ -74,8 +74,8 @@
 
             <ImageView
                 android:id="@+id/HomePager_button_my_image"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="5dp"
                 android:background="@mipmap/wode"/>
             <TextView

@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import org.example.xinda_05.homepager.R;
 import org.example.xinda_05.homepager.fragment.homepager.activity.Home_Pager_MyNews;
+import org.example.xinda_05.homepager.fragment.homepager.activity.Home_Pager_to_item;
 
 
 /**
@@ -23,7 +24,7 @@ import org.example.xinda_05.homepager.fragment.homepager.activity.Home_Pager_MyN
  */
 public class Home_pager_title_Fragment extends Fragment{
 
-    private LinearLayout HomePager_title_notice,HomePager_title_changeCity;
+    private LinearLayout HomePager_title_notice,HomePager_title_changeCity,HomePager_title_Search;
     private TextView HomePager_title_changeCityName;
     private View view;
 
@@ -51,6 +52,16 @@ public class Home_pager_title_Fragment extends Fragment{
 
         HomePager_title_changeCity= (LinearLayout) view.findViewById(R.id.HomePager_title_changeCity);
         HomePager_title_changeCityName= (TextView) view.findViewById(R.id.HomePager_title_changeCityName);
+
+        HomePager_title_Search= (LinearLayout) view.findViewById(R.id.HomePager_title_Search);
+        HomePager_title_Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), Home_Pager_to_item.class);
+                intent.putExtra("name","美食");
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     public void changCity(final Context context){

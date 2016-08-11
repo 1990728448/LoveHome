@@ -1,71 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-    <ImageView
-        android:layout_width="90sp"
-        android:layout_height="80sp"
-        android:src="@mipmap/love_icon2"
-        android:id="@+id/imageview_dianjia"/>
+    android:layout_height="100dp"
+    android:id="@+id/Home_laoxianghui_list">
+
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/Home_laoxianghui_list_image"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/defualt"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/Home_laoxianghui_list_StoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="东方明珠KTV"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp"
-                    android:id="@+id/textview_dianjia"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="¥500/人起"
-                    android:layout_marginLeft="20dp"
-                    android:id="@+id/textview_jiage"/>
-            </LinearLayout>
-            <ImageView
-                android:layout_width="200sp"
-                android:layout_height="50sp"
-                android:src="@mipmap/list_phone"
-                android:id="@+id/dianhua"/>
+                android:text="东方明珠KTV"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/Home_laoxianghui_list_Price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="东方明珠KTV"
+                android:singleLine="true"
+                android:textColor="#FC804E"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/Home_laoxianghui_list_dizhi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="东aaaaaaaaaaaaaaaaaa方明珠KTV"
+                android:textSize="13sp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:gravity="bottom"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="明珠广场       KTV"
-                android:textSize="20dp"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/textview_didian" />
+
             <ImageView
-                android:layout_marginLeft="20dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/imageview_shizhong"/>
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@mipmap/shijian" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="19:00-1:00"
-                android:id="@+id/shijian"/>
-
-
+                android:id="@+id/Home_laoxianghui_list_Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="10dp"
+                android:text="08:00-20:00"
+                android:textSize="13sp" />
         </LinearLayout>
+
+
     </LinearLayout>
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/Home_laoxianghui_list_call"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/list_phone" />
+
+</RelativeLayout>
