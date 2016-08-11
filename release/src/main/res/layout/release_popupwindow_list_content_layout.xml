@@ -3,9 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
        <TextView
+           android:id="@+id/PopupWindow_listview_text"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="美食"
-           android:textSize="28sp"
+           android:layout_height="32dp"
+           android:orientation="vertical"
            android:gravity="center"/>
 </LinearLayout>

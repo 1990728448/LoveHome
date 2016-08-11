@@ -4,19 +4,20 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 /**
  * Created by Jerry Mouse on 2016/8/9.
  */
 public class My_releaseActivity extends Activity{
-
+       ImageView img1;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.my_about_layout);
-            Button bt1=(Button) findViewById(R.id.back);
-            bt1.setOnClickListener(new View.OnClickListener() {
+          img1=(ImageView) findViewById(R.id.back);
+            img1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
