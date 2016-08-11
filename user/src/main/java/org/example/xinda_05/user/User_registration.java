@@ -16,15 +16,15 @@ public class User_registration extends Activity {
     EditText etPhone;
     Button btn1;
     Handler timeHandler=new Handler(){
-        @Override
+       /* @Override
         public void handleMessage(Message msg) {
-            if(msg.obj==0){
+            if(){
                 btn1.setText("再次获取");
                 btn1.setEnabled(true);
             }else{
                 btn1.setText(msg.obj+"秒之后再次获取");
             }
-        }
+        }*/
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
