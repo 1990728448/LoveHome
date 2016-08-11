@@ -1,6 +1,10 @@
 package org.example.xinda_05.homepager.fragment.homepager.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -12,6 +16,7 @@ import android.widget.LinearLayout;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.homepager.R;
+import org.example.xinda_05.homepager.fragment.homepager.activity.Home_laoxianghui;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_LunBo_ViewPager_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.adapter.Home_pager_content_item_adapter;
 import org.example.xinda_05.homepager.fragment.homepager.model.Home_pager_item_entity;
@@ -35,7 +40,8 @@ public class Home_pager_content_Fragment extends Fragment {
     private ViewPager viewPager;
     private ArrayList<LinearLayout> dot;
     private ViewPager HomePager_content_ViewPager;
-    private LinearLayout HomePager_content_ViewPager_Dot;
+    private LinearLayout HomePager_content_ViewPager_Dot,HomePager_content_LXH,HomePager_content_WMH;
+    private int pageNum;
 
 
     private int[] image= new int[]{R.mipmap.lunbo1, R.mipmap.lunbo2, R.mipmap.lunbo3};
@@ -49,7 +55,7 @@ public class Home_pager_content_Fragment extends Fragment {
         initView();
 
         //网络获取列表，填充至界面
-        intoGridViewData();
+        intoGridViewData(getContext());
 
         //加载ViewPager轮播图
         HomePager_content_ViewPager.setAdapter(new Home_pager_LunBo_ViewPager_adapter(getContext(),image));
@@ -76,6 +82,7 @@ public class Home_pager_content_Fragment extends Fragment {
             }
             @Override
             public void onPageSelected(int position) {
+                pageNum=position;
                 for (int i = 0; i < image.length; i++) {
                     LunBoDot.get(i).setImageResource(R.mipmap.hen_point);
                 }
@@ -86,8 +93,14 @@ public class Home_pager_content_Fragment extends Fragment {
 
             }
         });
+
         //设置中间位置,保证是页面数量的整数倍
-        HomePager_content_ViewPager.setCurrentItem((1000/2)-(1000/2)%image.length);
+        pageNum=(1000/2)-(1000/2)%image.length;
+        HomePager_content_ViewPager.setCurrentItem(pageNum);
+
+        //启动线程轮播
+        new MyThrad().start();
+
         return view;
     }
 
@@ -97,15 +110,34 @@ public class Home_pager_content_Fragment extends Fragment {
         ll = (LinearLayout) view.findViewById(R.id.HomePager_content_Item_GroupDot);
         HomePager_content_ViewPager= (ViewPager) view.findViewById(R.id.HomePager_content_ViewPager);
         HomePager_content_ViewPager_Dot= (LinearLayout) view.findViewById(R.id.HomePager_content_ViewPager_Dot);
+        HomePager_content_LXH= (LinearLayout) view.findViewById(R.id.HomePager_content_LXH);
+        HomePager_content_WMH= (LinearLayout) view.findViewById(R.id.HomePager_content_WMH);
+
+        HomePager_content_LXH.setOnClickListener(change);
+        HomePager_content_WMH.setOnClickListener(change);
 
         dot = new ArrayList<>();
         LunBoDot=new ArrayList<>();
-
     }
+
+    //子项布局的点击事件
+    View.OnClickListener change=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(getContext(), Home_laoxianghui.class);
+            int i = view.getId();
+            if (i == R.id.HomePager_content_LXH) {
+                intent.putExtra("name","老乡会");
+            }else if(i==R.id.HomePager_content_WMH){
+                intent.putExtra("name","外卖汇");
+            }
+            getActivity().startActivity(intent);
+        }
+    };
 
 
     //网络获取列表，填充至界面
-    private void intoGridViewData() {
+    private void intoGridViewData(final Context context) {
         HttpUtil.getURLData().getItem(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -121,7 +153,7 @@ public class Home_pager_content_Fragment extends Fragment {
 
                 LinearLayout.LayoutParams Params = new LinearLayout.LayoutParams(20, 20);
                 for (int i = 0; i < (data.size() / 8) + 1; i++) {
-                    LinearLayout l2 = new LinearLayout(getActivity());
+                    LinearLayout l2 = new LinearLayout(context);
                     if (i == 0) {
                         l2.setBackgroundResource(R.mipmap.hen_point);
                         l2.setLayoutParams(Params);
@@ -171,8 +203,30 @@ public class Home_pager_content_Fragment extends Fragment {
         });
     }
 
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.what==0){
+                pageNum++;
+                HomePager_content_ViewPager.setCurrentItem(pageNum);
+            }
+        }
+    };
+
     //处理轮播图自动滚动
     public class MyThrad extends Thread{
-
+        @Override
+        public void run() {
+            super.run();
+            while(true){
+                try {
+                    Thread.sleep(3000);
+                    handler.sendEmptyMessage(0);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
