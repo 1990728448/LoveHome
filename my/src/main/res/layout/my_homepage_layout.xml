@@ -24,9 +24,9 @@
     android:clickable="true"
         >
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="25dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="20dp"
         android:gravity="center"
         android:src="@mipmap/img_my_fragment_release_left"/>
     <TextView
@@ -34,6 +34,8 @@
         android:layout_height="match_parent"
         android:text="@string/string_release"
         android:layout_marginLeft="5dp"
+        android:paddingLeft="18dp"
+        android:textSize="16sp"
         android:gravity="center_vertical"
         android:textColor="#000000"
         android:layout_weight="1"/>
@@ -57,9 +59,9 @@
     android:background="#ffffff"
     android:orientation="horizontal">
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="25dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="20dp"
         android:gravity="center"
         android:src="@mipmap/img_my_fragment_draft_left"/>
     <TextView
@@ -67,6 +69,8 @@
         android:layout_height="match_parent"
         android:text="@string/string_thedraft"
         android:layout_marginLeft="5dp"
+        android:paddingLeft="18dp"
+        android:textSize="16sp"
         android:gravity="center_vertical"
         android:textColor="#000000"
         android:layout_weight="1"/>
@@ -88,9 +92,9 @@
         android:layout_marginTop="2dp"
         android:background="#ffffff">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="8dp"
+            android:layout_width="25dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:src="@mipmap/img_my_fragment_collection_left"/>
         <TextView
@@ -98,6 +102,8 @@
             android:layout_height="match_parent"
             android:text="@string/string_collection"
             android:layout_marginLeft="5dp"
+            android:paddingLeft="18dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:layout_weight="1"/>
@@ -119,9 +125,9 @@
         android:layout_marginTop="2dp"
         android:background="#ffffff">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="8dp"
+            android:layout_width="25dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:src="@mipmap/img_my_fragment_msg_left"/>
         <TextView
@@ -129,6 +135,8 @@
             android:layout_height="match_parent"
             android:text="@string/string_message"
             android:layout_marginLeft="5dp"
+            android:paddingLeft="18dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:layout_weight="1"/>
@@ -150,9 +158,9 @@
         android:layout_marginTop="15dp"
         android:background="#ffffff">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="8dp"
+            android:layout_width="25dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:src="@mipmap/img_my_fragment_stament_left"/>
         <TextView
@@ -160,6 +168,8 @@
             android:layout_height="match_parent"
             android:text="@string/string_statement"
             android:layout_marginLeft="5dp"
+            android:paddingLeft="18dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:layout_weight="1"/>
@@ -182,9 +192,9 @@
         android:layout_marginTop="2dp"
         android:background="#ffffff">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="8dp"
+            android:layout_width="25dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:src="@mipmap/img_my_fragment_about_left"/>
         <TextView
@@ -192,6 +202,8 @@
             android:layout_height="match_parent"
             android:text="@string/string_about"
             android:layout_marginLeft="5dp"
+            android:paddingLeft="18dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:layout_weight="1"/>
@@ -214,9 +226,9 @@
         android:layout_marginTop="2dp"
         android:background="#ffffff">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="8dp"
+            android:layout_width="25dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:src="@mipmap/img_my_fragment_share_left"/>
         <TextView
@@ -224,6 +236,8 @@
             android:layout_height="match_parent"
             android:text="@string/string_share"
             android:layout_marginLeft="5dp"
+            android:paddingLeft="18dp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:layout_weight="1"/>
@@ -246,9 +260,9 @@
             android:layout_marginTop="2dp"
             android:background="#ffffff">
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="8dp"
+                android:layout_width="25dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:src="@mipmap/img_login_password"/>
             <TextView
@@ -256,6 +270,8 @@
                 android:layout_height="match_parent"
                 android:text="@string/string_changepassword"
                 android:layout_marginLeft="5dp"
+                android:paddingLeft="18dp"
+                android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:textColor="#000000"
                 android:layout_weight="1"/>
@@ -277,9 +293,9 @@
                 android:layout_marginTop="2dp"
                 android:background="#ffffff">
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="35dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_width="25dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
                     android:src="@mipmap/img_my_fragment_buffer_left"/>
                 <TextView
@@ -287,6 +303,8 @@
                     android:layout_height="match_parent"
                     android:text="@string/string_clearcache"
                     android:layout_marginLeft="5dp"
+                    android:paddingLeft="18dp"
+                    android:textSize="16sp"
                     android:gravity="center_vertical"
                     android:textColor="#000000"
                     android:layout_weight="1"/>
@@ -299,14 +317,15 @@
                     />
             </LinearLayout>
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_gravity="center"
+                android:padding="8dp"
                 android:background="@mipmap/btn_small_green"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
                 android:text="退出登录"/>
         </LinearLayout>
     </ScrollView>
