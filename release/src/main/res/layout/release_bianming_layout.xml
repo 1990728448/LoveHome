@@ -2,6 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!--头-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height ="45dp"
+                android:background="#51C477"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/Release_item_layout_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageButton
+                        android:layout_width="12dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/back_icon"
+                        android:padding="22dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Release_item_layout_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:text="美食-酒店"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,31 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-    <!--头-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="#51C477"
-        android:orientation="horizontal">
-        <ImageButton
-            android:layout_width="12dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:background="@mipmap/back_icon"
-            android:padding="22dp" />
-
-        <TextView
-            android:id="@+id/Release_item_layout_title"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:layout_marginTop="3dp"
-            android:gravity="center"
-            android:text="便民-便民"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-    </LinearLayout>
-    <!--照相机-->
+            <!--照相机-->
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="100dp"
@@ -61,10 +71,10 @@
         android:orientation="vertical">
         <!--标题（小区）-->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +83,8 @@
                 android:textSize="16sp"
                 android:textColor="#000000"
                 android:text="@string/title"
-               />
+                />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -81,16 +92,20 @@
                 android:layout_marginLeft="15dp"
                 android:background="@null"
                 android:hint="阿里巴巴"
-                android:textSize="16sp"
-               />
+                android:textSize="16sp"/>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E5E5E5" />
 
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#cccccc"/>
+            android:background="#E5E5E5" />
         <!--地址-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,10 +132,11 @@
         </LinearLayout>
 
 
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#cccccc"/>
+            android:background="#E5E5E5" />
         <!--电话-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -151,10 +167,10 @@
             android:layout_height="1dp"
             android:background="#E5E5E5" />
 
-        <TextView
+        <View
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="#E8E8E8" />
+            android:layout_height="2dp"
+            android:background="#E5E5E5" />
 
         <TextView
             android:layout_width="match_parent"
@@ -163,14 +179,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="120dp">
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="房源描述含基本信息"
+                android:layout_height="match_parent"
                 android:background="@null"
-                android:layout_marginLeft="10dp"/>
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:hint="填写详情"
+                android:textColor="#000000"
+                />
         </LinearLayout>
     </LinearLayout>
         </LinearLayout>
@@ -179,30 +198,30 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E8E8E8"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="#FFFFFF"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
 
-            <ImageButton
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:background="@mipmap/caogao" />
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@mipmap/caogao" />
 
-            <ImageButton
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@mipmap/release" />
-        </LinearLayout>
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@mipmap/release" />
+    </LinearLayout>
 
 </LinearLayout>
 

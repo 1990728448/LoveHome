@@ -3,422 +3,526 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <!--头-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height ="45dp"
+        android:background="#51C477"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/Release_item_layout_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageButton
+                android:layout_width="12dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:background="@mipmap/back_icon"
+                android:padding="22dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Release_item_layout_title"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="美食-酒店"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-    <!--头-->
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="#51C477"
-            android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/Release_item_layout_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:background="@mipmap/back_icon"
-                android:padding="8dp" />
 
-            <TextView
-                android:id="@+id/Release_item_layout_title"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:gravity="center"
-                android:text="美食-酒店"
-                android:layout_marginTop="3dp"
-                android:textColor="#FFFFFF"
-                android:textSize="26sp"/>
-        </LinearLayout>
-    <!--照相机-->
+            <!--照相机-->
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/photo" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:background="#cccccc"/>
-    <!---->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!--商家名称-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Merchant_name"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="阿里巴巴"
-                android:background="@null"
-                android:layout_marginTop="10dp"
-               />
-            </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--营业时间-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/shop_hours"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="2dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="开始时间"
-                android:layout_marginLeft="20dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="至"
-                android:textSize="26sp"
-                android:layout_marginLeft="40dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="结束时间"
-                android:layout_marginLeft="60dp"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--人均消费-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/person_consumption"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="人均消费"
-                android:background="@null"
-                android:layout_marginTop="5dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="元"
-                android:textSize="24sp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="5dp"/>
-        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--计量单位-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/measurement"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"/>
-            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请填写好计量单位"
-                android:background="@null"
-                android:layout_marginTop="8dp"
-                />
-        </LinearLayout>
+                android:layout_height="1dp"
+                android:background="#E5E5E5" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--地址-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/address"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请填写好地址"
-                android:background="@null"
-                android:layout_marginTop="8dp"
-               />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--联系人-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/contacts"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请填写好联系人"
-                android:background="@null"
-                android:layout_marginTop="8dp"
-              />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--电话-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Telephone"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请填写正确的联系方式外地带区号）"
-                android:background="@null"
-                android:layout_marginTop="8dp"
-                />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="#cccccc"/>
-        <!--是否支持外卖服务-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:orientation="horizontal">
-        <ImageButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@mipmap/checkbox_bg_default"
-            android:layout_marginTop="5dp"
-            android:padding="2dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="支持外卖服务"
-            android:textColor="#0696F5"
-            android:layout_marginTop="5dp"
-            android:textSize="26sp"
-            android:layout_marginLeft="5dp"/>
-    </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#cccccc"/>
-        <!--外卖服务-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <!--外卖时间-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ake_away_time"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="6dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="开始时间"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="8dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="至"
-                    android:textSize="26sp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="8dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="结束时间"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="8dp"/>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#cccccc"/>
-            <!--外卖范围-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Take_out_range"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="阿里巴巴"
-                    android:background="@null"
-                    android:layout_marginTop="8dp"
-                    />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#cccccc"/>
-            <!--外卖收费-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Take_out_charge"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="6dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="人均消费"
-                    android:background="@null"
-                    android:layout_marginTop="6dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="元"
-                    android:textSize="26sp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="6dp"/>
-            </LinearLayout>
-
-            <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="#cccccc"/>
+                android:background="#E8E8E8" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E5E5" />
+            <!---->
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                >
-                <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--商家名称-->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="填写详情"
-                    android:background="@null"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
 
-                   />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/Merchant_name"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:background="@null"
+                        android:hint="阿里巴巴"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--营业时间-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/shop_hours"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:text="开始时间" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:text="至"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="结束时间" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--人均消费-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/person_consumption" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textSize="16sp"
+                        android:inputType="number"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:hint="人均消费" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="元"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--计量单位-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/measurement" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="15dp"
+                        android:hint="请填写好计量单位" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--地址-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/address" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        android:layout_marginLeft="15dp"
+                        android:hint="请填写好地址" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--联系人-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/contacts" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="15dp"
+                        android:hint="请填写好联系人" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--电话-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:text="@string/Telephone"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:background="@null"
+                        android:inputType="phone"
+                        android:textSize="16sp"
+                        android:hint="请填写正确的联系方式外地带区号）" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E5E5E5" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#E8E8E8" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E5E5E5" />
+                <!--是否支持外卖服务-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@mipmap/checkbox_bg_default"
+                        android:padding="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text="支持外卖服务"
+                        android:textColor="#0696F5"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#E5E5E5" />
+                <!--外卖服务-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!--外卖时间-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:text="@string/ake_away_time" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:text="开始时间" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:text="至"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="结束时间" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#E5E5E5" />
+                    <!--外卖范围-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:text="@string/Take_out_range" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:textSize="16sp"
+                            android:layout_marginLeft="15dp"
+                            android:hint="阿里巴巴" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#E5E5E5" />
+                    <!--外卖收费-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:text="@string/Take_out_charge"/>
+
+                        <EditText
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:textSize="16sp"
+                            android:layout_marginLeft="15dp"
+                            android:inputType="number"
+                            android:gravity="center_vertical"
+                            android:hint="人均消费" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="元/次"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E5E5E5" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="#E8E8E8" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E5E5E5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:padding="10dp"
+                            android:textSize="16sp"
+                            android:hint="填写详情"
+                            android:textColor="#000000"
+                            />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E5E5E5" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="#E8E8E8" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E5E5E5" />
+
+                </LinearLayout>
+
             </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E8E8E8"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="center"
         android:layout_gravity="center"
-        android:orientation="horizontal"
-        >
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
         <ImageButton
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:background="@mipmap/caogao"
+            android:layout_marginBottom="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            />
+            android:background="@mipmap/caogao" />
+
         <ImageButton
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:background="@mipmap/release"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            />
+            android:background="@mipmap/release" />
     </LinearLayout>
 </LinearLayout>
