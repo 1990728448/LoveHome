@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -57,6 +58,7 @@ public class Release_pager_content_Fragment extends Fragment{
     private ImageView error_btn;
     PopupWindow pop;
     int grid;//用于点击listview中的item
+
     //release_meishi_layout.xml  美食
     //release_bianming_layout.xml  便民
     //release_fangchan_layout.xml房产-买卖,其他
@@ -74,7 +76,6 @@ public class Release_pager_content_Fragment extends Fragment{
                      {"全职","兼职","钟点工","临时工","其他"},
                      {"手机","服装","食品","酒水","数码电器","母婴玩具","美容美发","珠宝配饰","办公耗材","家居家纺","日用品","其他"},
                      {"家具电器","服装箱包","手表珠宝","办公设施","其他"},
-
                      {"投资担保","咨询顾问","演出会展","其他"},
                      {"便民","其他"},
                      {},
@@ -105,55 +106,55 @@ int count;
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-                grid=i;
+                grid = i;
                 view3 = LayoutInflater.from(getActivity()).inflate(R.layout.release_popupwindow_list_layout, null);
-                list=(ListView) view3.findViewById(R.id.PopupWindow_listview);
-                list.setAdapter(new popInfo(getActivity(),msg,i));
+                list = (ListView) view3.findViewById(R.id.PopupWindow_listview);
+                list.setAdapter(new popInfo(getActivity(), msg, i));
                 ShowPopupWindow();
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int j, long l) {
-                        if (grid==0){
+                        if (grid == 0) {
                             // release_meishi_layout.xml  美食
-                        Intent intent=new Intent(getActivity(),Release_Meishi_Activity.class);
-                        startActivity(intent);
-                        }else if (grid==1||grid==3||grid==4||grid==5||grid==6||grid==8||grid==10||grid==13||grid==14){
+                            Intent intent = new Intent(getActivity(), Release_Meishi_Activity.class);
+                            startActivity(intent);
+                        } else if (grid == 1 || grid == 3 || grid == 4 || grid == 5 || grid == 6 || grid == 8 || grid == 10 || grid == 13 || grid == 14) {
                             //release_currency_layout.xml  娱乐-车-婚庆-装修-教育-百度-商务-外卖汇-其他
-                            Intent intent=new Intent(getActivity(),Release_Currency_Activity.class);
+                            Intent intent = new Intent(getActivity(), Release_Currency_Activity.class);
                             startActivity(intent);
                             pop.dismiss();
-                        }else if (grid==11){
+                        } else if (grid == 11) {
                             //release_bianming_layout.xml  便民
-                            Intent intent=new Intent(getActivity(),Release_Bianming_Activity.class);
+                            Intent intent = new Intent(getActivity(), Release_Bianming_Activity.class);
                             startActivity(intent);
                             pop.dismiss();
-                        }else if (grid==2&&i==0||i==2){
+                        } else if (grid == 2 && i == 0 || i == 2) {
                             //release_fangchan_layout.xml房产-买卖,其他
-                            Intent intent=new Intent(getActivity(),Release_Fangchan_Activity.class);
+                            Intent intent = new Intent(getActivity(), Release_Fangchan_Activity.class);
                             startActivity(intent);
                             pop.dismiss();
-                        }else if (grid==2&&i==1){
+                        } else if (grid == 2 && i == 1) {
                             //release_fangchan_zuping_layout.xml房产-租赁
-                            Intent intent=new Intent(getActivity(),Release_Fangchan_Zuping_Activity.class);
+                            Intent intent = new Intent(getActivity(), Release_Fangchan_Zuping_Activity.class);
                             startActivity(intent);
                             pop.dismiss();
-                        }else if (grid==7){
+                        } else if (grid == 7) {
                             //release_gongzuo_layout.xml 工作
-                            Intent intent=new Intent(getActivity(),Release_Gongzuo_Activity.class);
+                            Intent intent = new Intent(getActivity(), Release_Gongzuo_Activity.class);
                             startActivity(intent);
                             pop.dismiss();
-                        }else if (grid==9){
+                        } else if (grid == 9) {
                             //release_tiaozao_layout.xml  跳蚤
-                            Intent intent=new Intent(getActivity(),Release_Tiaozao_Activity.class);
+                            Intent intent = new Intent(getActivity(), Release_Tiaozao_Activity.class);
                             startActivity(intent);
                             pop.dismiss();
-                        }else {
+                        } else {
                             Toast.makeText(getActivity(), "为空", Toast.LENGTH_SHORT).show();
                             pop.dismiss();
                         }
                     }
                 });
-                error_btn=(ImageView)view3.findViewById(R.id.pop_error);
+                error_btn = (ImageView) view3.findViewById(R.id.pop_error);
                 error_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -232,15 +233,4 @@ int count;
     private class ViewHolder{
         TextView PopupWindow_listview_text;
     }
-    /* public  class OclickListItem implements AdapterView.OnItemClickListener{
-         int n;
-         public OclickListItem(int i) {
-             this.n=i;
-            Toast.makeText(getActivity(),"当前是"+n, Toast.LENGTH_SHORT).show();
-         }
-         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-             Intent intent=new Intent(getActivity(),Release_Currency_Activity.class);
-             startActivity(intent);
-         }
-     }*/
 }

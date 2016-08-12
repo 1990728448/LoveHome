@@ -5,90 +5,95 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-    <!--头-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="#51C477"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/Release_item_layout_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@mipmap/back_icon"
-            android:padding="8dp" />
+            <!--头-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#51C477"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/Release_item_layout_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@mipmap/back_icon"
+                    android:padding="8dp" />
 
-        <TextView
-            android:id="@+id/Release_item_layout_title"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:gravity="center"
-            android:text="房产-买卖"
-            android:layout_marginTop="3dp"
-            android:textColor="#FFFFFF"
-            android:textSize="26sp"/>
-    </LinearLayout>
-    <!--照相机-->
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@mipmap/photo"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:background="#cccccc"/>
+                <TextView
+                    android:id="@+id/Release_item_layout_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:gravity="center"
+                    android:text="工作-全职"
+                    android:layout_marginTop="3dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="26sp"/>
+            </LinearLayout>
+            <!--照相机-->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/photo" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="#cccccc"/>
     <!---->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <!--标题（小区）-->
+        <!--标题-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="40dp"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="阿里巴巴"
                 android:background="@null"
-              />
+                android:layout_marginTop="10dp" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#cccccc"/>
-        <!--商家名称-->
+        <!--公司名称-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Company_name"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="阿里巴巴"
                 android:background="@null"
+                android:layout_marginTop="10dp"
                 />
         </LinearLayout>
         <View
@@ -98,14 +103,16 @@
         <!--营业时间-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/active_time"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,26 +142,30 @@
         <!--价格-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pay"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="请填写价格"
                 android:background="@null"
+                android:layout_marginTop="5dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="元"
-                android:textSize="26sp"
-                android:layout_marginLeft="40dp"/>
+                android:textSize="24sp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"/>
         </LinearLayout>
 
         <View
@@ -164,20 +175,21 @@
         <!--计量单位-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="40dp"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/measurement"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请填写好计量单位（例如小时，）"
+                android:hint="请填写好计量单位"
                 android:background="@null"
-                />
+                android:layout_marginTop="8dp" />
         </LinearLayout>
 
         <View
@@ -187,20 +199,21 @@
         <!--地址-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="40dp"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/address"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="请填写好地址"
                 android:background="@null"
-               />
+                android:layout_marginTop="8dp" />
         </LinearLayout>
 
         <View
@@ -210,20 +223,21 @@
         <!--联系人-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="40dp"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/contacts"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="请填写好联系人"
                 android:background="@null"
-                />
+                android:layout_marginTop="8dp" />
         </LinearLayout>
 
         <View
@@ -233,54 +247,59 @@
         <!--电话-->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_height="40dp"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Telephone"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请填写正确的联系方式（外地带“区号”）"
+                android:hint="请填写正确的联系方式外地带区号）"
                 android:background="@null"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:background="#cccccc"/>
+                android:layout_marginTop="8dp" />
         </LinearLayout>
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="房源描述含基本信息"
-                android:background="@null"
-                />
-        </LinearLayout>
+            android:layout_height="10dp"
+            android:background="#cccccc"/>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="90dp"
-            >
-            <ImageButton
-                android:layout_width="wrap_content"
+            android:layout_height="200dp">
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/caogao"
-                android:layout_weight="1"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/release"
-                android:layout_weight="1"/>
+                android:hint="填写详情"
+                android:background="@null"
+                android:layout_marginLeft="10dp"/>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+        </LinearLayout>
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/caogao"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/release"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+    </LinearLayout>
 </LinearLayout>
+
