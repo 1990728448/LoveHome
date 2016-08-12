@@ -13,24 +13,24 @@
         android:layout_height="50dip"
         >
         <ImageButton
-            android:gravity="center_vertical"
-            android:layout_height="32dip"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="16dip"
-            android:layout_marginTop="10dip"
-            android:background="@mipmap/back_icon"
-            android:layout_weight="0"
-            />
+        android:gravity="center_vertical"
+        android:layout_height="32dip"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dip"
+        android:layout_marginTop="10dip"
+        android:background="@mipmap/back_icon"
+        android:layout_weight="0"
+        />
         <TextView
             android:gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="登录"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:text="商户详情"
             android:textColor="#ffffff"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:layout_weight="5"
-            android:layout_marginLeft="-38dip"
-            android:layout_marginTop="12dip"
+            android:paddingLeft="-40dp"
+
             />
 
     </LinearLayout>
@@ -74,10 +74,11 @@
                         android:background="@mipmap/img_login_phone"
                         />
                     <EditText
-                     android:textSize="16sp"
+                        android:textSize="16sp"
                         android:gravity="center_vertical"
                         android:background="@android:color/transparent"
                         android:paddingLeft="10dip"
+
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:hint="手机号"
@@ -134,13 +135,14 @@
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="10dip" />
             <Button
+                android:layout_marginLeft="25dp"
                 android:textSize="25sp"
                 android:textColor="@android:color/white"
                 android:layout_width="fill_parent"
                 android:layout_height="50dip"
-                android:layout_marginLeft="10dip"
                 android:layout_marginTop="20dip"
-                android:layout_marginRight="10dip"
+                android:layout_marginRight="25dip"
+
                 android:text="登录"
                 android:background="#51C477"
                 android:id="@+id/user_login_layout"/>
@@ -151,30 +153,30 @@
                 android:layout_marginLeft="15dip"
                 android:layout_marginTop="15dip"
                 android:layout_marginRight="15dip">
-                <Button
+                <TextView
                     android:onClick="onClick"
                     android:id="@+id/user_login_layout_registration"
                     android:textSize="16sp"
-                    android:textColor="#ff50c577"
-                    android:background="@android:color/transparent"
+                    android:textColor="#51C477"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
                     android:paddingTop="20dip"
-                    android:paddingRight="20dip"
                     android:paddingBottom="20dip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="用户注册" />
-                <Button
+                <TextView
                     android:onClick="onClick"
                     android:id="@+id/user_login_layout_forgetpassword"
                     android:textSize="16sp"
-                    android:textColor="#ff50c577"
-                    android:background="@android:color/transparent"
+                    android:textColor="#51C477"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     android:paddingTop="20dip"
-                    android:paddingRight="20dip"
                     android:paddingBottom="20dip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="忘记密码？"
+                    android:text="忘记密码"
                     android:layout_alignParentRight="true" />
             </RelativeLayout>
             <LinearLayout
