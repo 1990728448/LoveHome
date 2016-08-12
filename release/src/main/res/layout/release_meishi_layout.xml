@@ -5,19 +5,19 @@
     android:orientation="vertical">
     <!--头-->
     <LinearLayout
+        android:id="@+id/Release_item_layout_back"
         android:layout_width="match_parent"
         android:layout_height ="45dp"
         android:background="#51C477"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/Release_item_layout_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="12dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
@@ -25,7 +25,6 @@
                 android:background="@mipmap/back_icon"
                 android:padding="22dp" />
         </LinearLayout>
-
         <TextView
             android:id="@+id/Release_item_layout_title"
             android:layout_width="match_parent"

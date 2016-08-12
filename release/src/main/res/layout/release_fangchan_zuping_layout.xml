@@ -5,13 +5,14 @@
     android:orientation="vertical">
     <!--头-->
     <LinearLayout
+        android:id="@+id/Release_item_layout_back"
         android:layout_width="match_parent"
         android:layout_height ="45dp"
         android:background="#51C477"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/Release_item_layout_back"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:clickable="true"

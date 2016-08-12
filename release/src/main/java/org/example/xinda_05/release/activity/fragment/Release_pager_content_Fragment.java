@@ -118,6 +118,7 @@ int count;
                             // release_meishi_layout.xml  美食
                             Intent intent = new Intent(getActivity(), Release_Meishi_Activity.class);
                             startActivity(intent);
+                            pop.dismiss();
                         } else if (grid == 1 || grid == 3 || grid == 4 || grid == 5 || grid == 6 || grid == 8 || grid == 10 || grid == 13 || grid == 14) {
                             //release_currency_layout.xml  娱乐-车-婚庆-装修-教育-百度-商务-外卖汇-其他
                             Intent intent = new Intent(getActivity(), Release_Currency_Activity.class);
