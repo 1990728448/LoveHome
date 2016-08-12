@@ -15,6 +15,7 @@ import org.example.xinda_05.my.My_login_headFragment;
 import org.example.xinda_05.my.My_personal_HomePageFragment;
 import org.example.xinda_05.release.activity.fragment.Release_page_tatle_Fragment;
 import org.example.xinda_05.release.activity.fragment.Release_pager_content_Fragment;
+import org.example.xinda_05.util.SQLUtil.SQLHelper;
 
 public class MainActivity extends FragmentActivity {
 
@@ -73,6 +74,10 @@ public class MainActivity extends FragmentActivity {
 
         //初始化控件
         initView();
+
+        //初始化数据库
+        SQLHelper helper=new SQLHelper(this);
+        helper.getReadableDatabase();
 
 
     }
