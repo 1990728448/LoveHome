@@ -30,7 +30,7 @@ public class User_registration extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registration_layout);
+        setContentView(R.layout.user_registration_layout);
 
         ImageButton fanhui= (ImageButton) findViewById(R.id.user_registration_layout_fanhui);
 
