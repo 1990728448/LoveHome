@@ -1,13 +1,16 @@
 package org.example.xinda_05.my;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import org.example.xinda_05.my.My_Jump.My_MessageActivity;
 import org.example.xinda_05.my.My_Jump.My_StatementActivitiy;
@@ -22,8 +25,7 @@ import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
  */
 public class My_personal_HomePageFragment extends Fragment {
     @Nullable
-     LinearLayout lat1,lat2,lat3,lat4,lat5,lat6,lat7;
-
+     LinearLayout lat1,lat2,lat3,lat4,lat5,lat6,lat7,lat8,lat9;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.my_homepage_layout, null);
         lat1=(LinearLayout) view.findViewById(R.id.person_mypublish_intent);
@@ -33,6 +35,8 @@ public class My_personal_HomePageFragment extends Fragment {
         lat5=(LinearLayout)view.findViewById(R.id.person_mypublish_intent4);
         lat6=(LinearLayout)view.findViewById(R.id.person_mypublish_intent5);
         lat7=(LinearLayout)view.findViewById(R.id.person_mypublish_intent7);
+        lat8=(LinearLayout)view.findViewById(R.id.person_mypublish_intent6);
+        lat9= (LinearLayout)view.findViewById(R.id.person_mypublish_intent8);
         lat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,8 +82,32 @@ public class My_personal_HomePageFragment extends Fragment {
         lat7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent it7=new Intent(getActivity(),My_pwdActivity.class);
-//                getActivity().startActivity(it7);
+//              Intent it7=new Intent(getActivity(),My_pwdActivity.class);
+   //           getActivity().startActivity(it7);
+            }
+        });
+        lat8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        lat9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert=new AlertDialog.Builder(getContext());
+                alert.setTitle("确定清除缓存");
+                alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                       Toast.makeText(getActivity(),"清除成功", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+                alert.setNegativeButton("取消", null);
+                alert.show();
+
             }
         });
         return view;

@@ -2,15 +2,16 @@
     package="org.example.xinda_05.my">
 
     <application android:allowBackup="true" android:label="@string/app_name"
-        android:supportsRtl="true">
-
+        android:supportsRtl="true"
+        android:name=".DataUtil.My_MyApplication">
         <activity android:name=".My_Jump.My_releaseActivity"></activity>
         <activity android:name=".My_Jump.My_collectionActivity"></activity>
         <activity android:name=".My_Jump.My_thedraftActivity"></activity>
         <activity android:name=".My_Jump.My_aboutActivity"></activity>
         <activity android:name=".My_Jump.My_StatementActivitiy"></activity>
         <activity android:name=".My_Jump.My_MessageActivity"></activity>
-    </application>
 
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>
