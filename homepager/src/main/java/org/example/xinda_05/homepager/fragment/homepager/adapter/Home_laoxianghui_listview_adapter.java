@@ -31,8 +31,6 @@ import it.sephiroth.android.library.picasso.Picasso;
  */
 public class Home_laoxianghui_listview_adapter extends BaseAdapter {
 
-    private int now;
-
     private ArrayList<Home_pager_BusinessDetails_entity> data;
     private ArrayList<Home_pager_bussinessImage_entity> image;
     private Context context;
@@ -60,7 +58,6 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        now = i;
         ViewHolder holder = null;
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.home_laoxianghui_layout_item, null);
@@ -89,39 +86,8 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
-
-
-        holder.Home_laoxianghui_list_call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("确定要拨打：" + data.get(now).getPhone());
-                builder.setNegativeButton("确认", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + data.get(now).getPhone()));
-                        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
-                            return;
-                        }
-                        context.startActivity(intent);
-                    }
-                });
-                builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-                builder.create().show();
-            }
-        });
+        //点击拨打电话
+        holder.Home_laoxianghui_list_call.setOnClickListener(new callPhone(i));
         return view;
     }
 
@@ -132,4 +98,45 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
 
         public RelativeLayout Home_laoxianghui_list;
     }
+
+
+    private class callPhone implements View.OnClickListener{
+
+        private int phone;
+
+        public callPhone(int phone) {
+            this.phone = phone;
+        }
+
+        @Override
+        public void onClick(View view) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("确定要拨打：" + data.get(phone).getPhone());
+            builder.setNegativeButton("确认", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + data.get(phone).getPhone()));
+                    if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    context.startActivity(intent);
+                }
+            });
+            builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.create().show();
+        }
+    }
+
 }
