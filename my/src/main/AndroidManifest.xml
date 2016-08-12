@@ -10,8 +10,6 @@
         <activity android:name=".My_Jump.My_aboutActivity"></activity>
         <activity android:name=".My_Jump.My_StatementActivitiy"></activity>
         <activity android:name=".My_Jump.My_MessageActivity"></activity>
-        <activity android:name=".My_Jump.My_pwdActivity"></activity>
-        <activity android:name=".My_Jump.My_pwdforgetActivity"></activity>
     </application>
 
 

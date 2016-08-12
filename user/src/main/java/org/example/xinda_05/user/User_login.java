@@ -15,7 +15,7 @@ public class User_login extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_layout);
+        setContentView(R.layout.user_login_layout);
 
        //初始化控件
         Button bnt1=(Button) findViewById(R.id.user_login_layout_registration);
