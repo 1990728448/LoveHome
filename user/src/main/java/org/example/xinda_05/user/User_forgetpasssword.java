@@ -15,7 +15,6 @@ public class User_forgetpasssword extends Activity {
         setContentView(R.layout.user_forgetpassword_layout);
 
         ImageButton fanhui= (ImageButton) findViewById(R.id.user_forgetpassword_layout_fanhui);
-
         fanhui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
