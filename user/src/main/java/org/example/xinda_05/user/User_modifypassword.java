@@ -10,6 +10,6 @@ public class User_modifypassword extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.modifypassword_layout);
+        setContentView(R.layout.user_modifypassword_layout);
     }
 }

@@ -36,7 +36,7 @@ import medusa.theone.waterdroplistview.view.WaterDropListView;
  * Created by ZhouZhicheng on 2016/8/9.
  */
 
-/*
+/**
    imgUrlList 图片
    merchant_name店名
    per_capita_consumption人均消费  opening_time营业时间  closing_time 打烊时间

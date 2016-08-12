@@ -19,10 +19,7 @@ import medusa.theone.waterdroplistview.R;
 import medusa.theone.waterdroplistview.entity.Circle;
 import medusa.theone.waterdroplistview.utils.Utils;
 
-/**
- * Created by xiayong on 2015/6/23.
- * 下拉头中间的“水滴”
- */
+
 public class WaterDropView extends View {
 
     private Circle topCircle;
@@ -30,11 +27,11 @@ public class WaterDropView extends View {
 
     private Paint mPaint;
     private Path mPath;
-    private float mMaxCircleRadius;//圆半径最大值
-    private float mMinCircleRaidus;//圆半径最小值
-    private Bitmap arrowBitmap;//箭头
+    private float mMaxCircleRadius;
+    private float mMinCircleRaidus;
+    private Bitmap arrowBitmap;
     private final static int BACK_ANIM_DURATION = 180;
-    private final static float STROKE_WIDTH = 2;//边线宽度
+    private final static float STROKE_WIDTH = 2;
 
     public WaterDropView(Context context) {
         super(context);
@@ -114,9 +111,9 @@ public class WaterDropView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        //宽度：上圆和下圆的最大直径
+
         int width = (int) ((mMaxCircleRadius + STROKE_WIDTH) * 2);
-        //高度：上圆半径 + 圆心距 + 下圆半径
+
         int height = (int) Math.ceil(bottomCircle.getY()+bottomCircle.getRadius() + STROKE_WIDTH * 2);
         setMeasuredDimension(width, height);
     }
@@ -141,7 +138,6 @@ public class WaterDropView extends View {
 
     private void makeBezierPath() {
         mPath.reset();
-        //获取两圆的两个切线形成的四个切点
         double angle = getAngle();
         float top_x1 = (float) (topCircle.getX() - topCircle.getRadius() * Math.cos(angle));
         float top_y1 = (float) (topCircle.getY() + topCircle.getRadius() * Math.sin(angle));
@@ -174,11 +170,7 @@ public class WaterDropView extends View {
         mPath.close();
     }
 
-    /**
-     * 获得两个圆切线与圆心连线的夹角
-     *
-     * @return
-     */
+
     private double getAngle() {
         if (bottomCircle.getRadius() > topCircle.getRadius()) {
             throw new IllegalStateException("bottomCircle's radius must be less than the topCircle's");
@@ -186,14 +178,6 @@ public class WaterDropView extends View {
         return Math.asin((topCircle.getRadius() - bottomCircle.getRadius()) / (bottomCircle.getY() - topCircle.getY()));
     }
 
-    /**
-     * 创建回弹动画
-     * 上圆半径减速恢复至最大半径
-     * 下圆半径减速恢复至最大半径
-     * 圆心距减速从最大值减到0(下圆Y从当前位置移动到上圆Y)。
-     *
-     * @return
-     */
     public Animator createAnimator() {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(1, 0).setDuration(BACK_ANIM_DURATION);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
@@ -206,11 +190,6 @@ public class WaterDropView extends View {
         return valueAnimator;
     }
 
-    /**
-     * 完成的百分比
-     *
-     * @param percent between[0,1]
-     */
     public void updateComleteState(float percent) {
         if (percent < 0 || percent > 1) {
             throw new IllegalStateException("completion percent should between 0 and 1!");

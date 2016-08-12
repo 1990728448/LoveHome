@@ -12,7 +12,7 @@ public class User_forgetpasssword extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.forgetpassword_layout);
+        setContentView(R.layout.user_forgetpassword_layout);
 
         ImageButton fanhui= (ImageButton) findViewById(R.id.user_forgetpassword_layout_fanhui);
         fanhui.setOnClickListener(new View.OnClickListener() {

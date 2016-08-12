@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import org.example.xinda_05.my.My_Jump.My_MessageActivity;
 import org.example.xinda_05.my.My_Jump.My_StatementActivitiy;
 import org.example.xinda_05.my.My_Jump.My_aboutActivity;
 import org.example.xinda_05.my.My_Jump.My_collectionActivity;
-import org.example.xinda_05.my.My_Jump.My_pwdActivity;
 import org.example.xinda_05.my.My_Jump.My_releaseActivity;
 import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
 
@@ -80,8 +78,8 @@ public class My_personal_HomePageFragment extends Fragment {
         lat7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it7=new Intent(getActivity(),My_pwdActivity.class);
-                getActivity().startActivity(it7);
+//                Intent it7=new Intent(getActivity(),My_pwdActivity.class);
+//                getActivity().startActivity(it7);
             }
         });
         return view;
