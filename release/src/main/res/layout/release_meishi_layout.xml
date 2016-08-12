@@ -120,10 +120,12 @@
                         android:text="@string/shop_hours"/>
 
                     <TextView
+                        android:id="@+id/start_time"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:onClick="myClick"
                         android:layout_marginLeft="15dp"
                         android:text="开始时间" />
 
@@ -135,6 +137,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/End_time"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -312,12 +315,18 @@
                     android:background="#E5E5E5" />
                 <!--是否支持外卖服务-->
                 <LinearLayout
+                    android:id="@+id/waimai_Choice_Hook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageButton
+                        android:id="@+id/Choice_NoChoice_Hook"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:background="@mipmap/checkbox_bg_default"
@@ -359,6 +368,7 @@
                             android:text="@string/ake_away_time" />
 
                         <TextView
+                            android:id="@+id/takeout_start_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -374,6 +384,7 @@
                             android:textSize="16sp" />
 
                         <TextView
+                            android:id="@+id/takeout_End_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -474,6 +485,7 @@
                             android:textColor="#000000"
                             />
                     </LinearLayout>
+                </LinearLayout>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
