@@ -17,6 +17,8 @@ public class Home_laoxianghui_item extends Activity {
         setContentView(R.layout.home_laoxianghui_layout_item);
 
         LinearLayout fanhui= (LinearLayout) findViewById(R.id.HomePager_search_shop_back);
+
+        //结束当前界面
         fanhui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
