@@ -21,6 +21,7 @@
             android:src="@mipmap/back_icon" />
 
         <TextView
+            android:id="@+id/My_examine_release"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -37,6 +38,7 @@
             android:layout_weight="2">
 
             <TextView
+                android:id="@+id/My_examine_release_examine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -45,6 +47,7 @@
                 android:textSize="20dp" />
 
             <ImageView
+                android:id="@+id/My_examine_release_examine_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -67,6 +70,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/My_examine_Head"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@mipmap/defualt" />
@@ -78,18 +82,21 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/My_examine_name"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:text="吧"
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/My_examine_money"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:text="¥ 0/"
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/My_examine_type"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:text="快乐 西点"
@@ -102,6 +109,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/My_examine_clock"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_alignParentBottom="true"
@@ -110,12 +118,14 @@
                     android:src="@mipmap/shijian" />
 
                 <TextView
+                    android:id="@+id/My_examine_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:text="time" />
             </RelativeLayout>
         </LinearLayout>
         <TextView
+            android:id="@+id/My_examine_text_segmentation"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="#e8e8e8"/>
@@ -133,16 +143,18 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:src="@mipmap/img_release_item_modify"
-            android:id="@+id/modify"/>
+            android:id="@+id/My_examine_modify_picture"/>
         <TextView
+            android:id="@+id/My_examine_modify"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="修改"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/modify"
-            android:background=""/>
+            android:layout_toRightOf="@id/My_examine_modify_picture"
+            android:background="#ffffff"/>
     </RelativeLayout>
         <ImageView
+            android:id="@+id/My_examine_segmentation"
             android:layout_width="10dp"
             android:layout_height="15dp"
             android:background="#e8e8e8"/>
@@ -156,14 +168,15 @@
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/img_release_item_delete"
-                android:id="@+id/delete"/>
+                android:id="@+id/My_examine_delete_picture"/>
             <TextView
+                android:id="@+id/My_examine_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="删除"
                 android:layout_marginTop="15dp"
-                android:layout_toRightOf="@id/delete"
-                android:background=""/>
+                android:layout_toRightOf="@id/My_examine_delete_picture"
+                android:background="#ffffff"/>
         </RelativeLayout>
     </LinearLayout>
 

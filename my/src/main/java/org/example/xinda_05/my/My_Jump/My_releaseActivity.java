@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -22,9 +24,7 @@ import org.example.xinda_05.my.R;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-
 import cz.msebera.android.httpclient.Header;
 import medusa.theone.waterdroplistview.view.WaterDropListView;
 
@@ -63,14 +63,15 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
             }
         });
 
-        HttpUtil.getURLData().getMy_releaseLUrl(new JsonHttpResponseHandler()
-        {
+        HttpUtil.getURLData().getMy_releaseLUrl(new JsonHttpResponseHandler() {
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Gson gson=new Gson();
                 try {
                     String msg=response.getString("list");
+                    Log.e("Tag",msg);
                     ArrayList<publishEntity> list=gson.fromJson(msg,new TypeToken<ArrayList<publishEntity>>(){}.getType());
                     lv.setAdapter(new listView(My_releaseActivity.this,list));
                 } catch (JSONException e) {
@@ -122,11 +123,37 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-
+            ViewHolder holder;
+            if(view==null){
+                holder=new ViewHolder();
+                view=LayoutInflater.from(context).inflate(R.layout.my_examine_layout,null);
+                holder.t1=(TextView) view.findViewById(R.id.My_examine_name);
+                holder.t2=(TextView) view.findViewById(R.id.My_examine_money);
+                holder.t3=(TextView) view.findViewById(R.id.My_examine_type);
+                holder.t4=(TextView) view.findViewById(R.id.My_examine_time);
+                holder.t5=(TextView) view.findViewById(R.id.My_examine_modify);
+                holder.t6=(TextView) view.findViewById(R.id.My_examine_delete);
+                holder.t7=(TextView) view.findViewById(R.id.My_examine_text_segmentation);
+                holder.i1=(ImageView) view.findViewById(R.id.My_examine_Head);
+                holder.i2=(ImageView) view.findViewById(R.id.My_examine_delete_picture);
+                holder.i3=(ImageView) view.findViewById(R.id.My_examine_segmentation);
+                holder.i4=(ImageView) view.findViewById(R.id.My_examine_modify_picture);
+                holder.i5=(ImageView) view.findViewById(R.id.My_examine_clock);
+                view.setTag(holder);
+            }else{
+                holder= (ViewHolder) view.getTag();
+            }
+            holder.t1.setText(data.get(i).getBusiness_location());
 
 
             return view;
         }
+    }
+
+    private class ViewHolder{
+        TextView t1,t2,t3,t4,t5,t6,t7;
+        ImageView i1,i2,i3,i4,i5;
+
     }
 }
 
