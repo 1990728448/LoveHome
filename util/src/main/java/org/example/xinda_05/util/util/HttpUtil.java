@@ -76,4 +76,12 @@ public class HttpUtil {
             e.printStackTrace();
         }
     }
+    public void getMy_releaseLUrl(JsonHttpResponseHandler handler){
+        try{
+            String Url=URL.getIdStoreURL(1213);
+            client.get(Url,handler);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

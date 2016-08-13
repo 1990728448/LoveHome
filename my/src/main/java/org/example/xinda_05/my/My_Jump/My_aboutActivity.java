@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import org.example.xinda_05.my.R;
 
@@ -13,7 +14,7 @@ import org.example.xinda_05.my.R;
 //这是关于爱家乡的Activity
 public class My_aboutActivity extends Activity {
     ImageView img1;
-
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class My_aboutActivity extends Activity {
             public void onClick(View view) {
                 finish();
             }
-        });//点击后跳回到上一页面
+        });
     }
 }
+
