@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by ZhouZhicheng on 2016/8/8.
@@ -18,8 +18,8 @@ public class User_login extends Activity {
         setContentView(R.layout.user_login_layout);
 
        //初始化控件
-        Button bnt1=(Button) findViewById(R.id.user_login_layout_registration);
-        Button bnt2=(Button) findViewById(R.id.user_login_layout_forgetpassword);
+        TextView bnt1= (TextView) findViewById(R.id.user_login_layout_registration);
+        TextView bnt2= (TextView) findViewById(R.id.user_login_layout_forgetpassword);
        //跳转到用户注册界面
         bnt1.setOnClickListener(new View.OnClickListener() {
             @Override
