@@ -10,11 +10,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
     /**
-     *  item 表---存放首页及发布的grid的内容（_id_ 主键，item_name 子项名字，item_url 子项图片地址）
-     *  location 表---存放所有商铺信息及本地保存的草稿（_id 主键，business_location 商家地址，opening_time 开门时间，closing_time 关门时间
+     * 1 item 表---存放首页及发布的grid的内容（_id_ 主键，item_name 子项名字，item_url 子项图片地址）
+     * 3 location 表---存放所有商铺信息及本地保存的草稿（_id 主键，business_location 商家地址，opening_time 开门时间，closing_time 关门时间
      *                              detail_info 简介，measure_unit 人均单位，merchant_name 商铺名称，per_capita_consumption，消费金额
      *                              phone 电话号码，select 本地所属类型，image_url 图片地址，collect 收藏（标志位1 为true ，else fasle ））
-     *  store 表---存放所有商铺信息及本地保存的草稿（_id 主键，business_location 商家地址，opening_time 开门时间，closing_time 关门时间
+     * 2 store 表---存放所有商铺信息及本地保存的草稿（_id 主键，business_location 商家地址，opening_time 开门时间，closing_time 关门时间
      *                              detail_info 简介，measure_unit 人均单位，merchant_name 商铺名称，per_capita_consumption，消费金额
      *                              phone 电话号码 ，people 联系人 ，selects 本地所属类型，image_url 图片地址collect 收藏（标志位1 为true ，else fasle ））
      * @author Jerry Mouse
@@ -38,9 +38,11 @@ public class SQLHelper extends SQLiteOpenHelper {
                 "closing_time varchar(15) , detail_info varchar(500) , measure_unit varchar(100) , merchant_name varchar(100) , " +
                 "per_capita_consumption varchar(10) , phone varchar(15) , image_url varchar(255) ," +
                 " people varchar(15) , selects varchar(50) ,collect varchar(1))";
+        String sql4="create table user (_id integer primary key autoincrement, user_number varchar(15) , user_password varchar(50))";
         sqLiteDatabase.execSQL(sql1);
         sqLiteDatabase.execSQL(sql2);
         sqLiteDatabase.execSQL(sql3);
+        sqLiteDatabase.execSQL(sql4);
     }
 
     @Override

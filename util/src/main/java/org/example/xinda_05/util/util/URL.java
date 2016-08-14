@@ -20,6 +20,14 @@ public class URL {
     //获取网络商铺所有信息
     public static String ALL_StoreInfo=BASE_URL+"/detailInfo?is_approve=1";
 
+    //获取网络商铺审核状态信息
+    public static String getIdStoreURL(int ID){
+        String url=null;
+        url=BASE_URL+"/detailInfo?user_id="+ID+"?is_approve=1";
+        return url;
+    }
+
+
     //获取验证码
     public static String getCode(String number){
         String url=BASE_URL+"/scanCode?phone="+number;

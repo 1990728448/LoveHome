@@ -38,7 +38,7 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
     public Home_laoxianghui_listview_adapter(ArrayList<Home_pager_BusinessDetails_entity> data, ArrayList<Home_pager_bussinessImage_entity> image, Context context) {
         this.data = data;
         this.context = context;
-        this.image=image;
+        this.image = image;
     }
 
     @Override
@@ -68,39 +68,33 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
             holder.textview_didian = (TextView) view.findViewById(R.id.Home_laoxianghui_list_dizhi);
             holder.textview_shijian1 = (TextView) view.findViewById(R.id.Home_laoxianghui_list_Time);
             holder.Home_laoxianghui_list_call = (ImageButton) view.findViewById(R.id.Home_laoxianghui_list_call);
-            holder.Home_laoxianghui_list= (RelativeLayout)view.findViewById(R.id.Home_laoxianghui_list);
+            holder.Home_laoxianghui_list = (RelativeLayout) view.findViewById(R.id.Home_laoxianghui_list);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         Picasso.with(context).load(image.get(i).getImg_url()).into(holder.imageview_dianjia);
         holder.textview_dianming.setText(data.get(i).getMerchant_name());
-        holder.textview_jiage.setText("￥ " + data.get(i).getPer_capita_consumption()+"/"+data.get(i).getMeasure_unit());
+        holder.textview_jiage.setText("￥ " + data.get(i).getPer_capita_consumption() + "/" + data.get(i).getMeasure_unit());
         holder.textview_didian.setText(data.get(i).getBusiness_location());
         holder.textview_shijian1.setText(data.get(i).getOpening_time() + "-" + data.get(i).getClosing_time());
-
-        holder.Home_laoxianghui_list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(context, Home_business_details.class);
-                context.startActivity(intent);
-            }
-        });
+        //点击跳转
+        holder.Home_laoxianghui_list.setOnClickListener(new Info(context, i));
         //点击拨打电话
         holder.Home_laoxianghui_list_call.setOnClickListener(new callPhone(i));
         return view;
     }
 
     private class ViewHolder {
-        public ImageView imageview_dianjia;
+        public ImageView imageview_dianjia, imageview_dianjia1;
         private ImageButton Home_laoxianghui_list_call;
-        public TextView textview_dianming,textview_jiage,textview_didian,textview_shijian1;
+        public TextView textview_dianming, textview_jiage, textview_didian, textview_shijian1;
 
         public RelativeLayout Home_laoxianghui_list;
     }
 
 
-    private class callPhone implements View.OnClickListener{
+    private class callPhone implements View.OnClickListener {
 
         private int phone;
 
@@ -136,6 +130,32 @@ public class Home_laoxianghui_listview_adapter extends BaseAdapter {
                 }
             });
             builder.create().show();
+        }
+    }
+
+    private class Info implements View.OnClickListener {
+
+        private Context context;
+        private int id;
+
+        public Info(Context context, int id) {
+            this.context = context;
+            this.id = id;
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(context, Home_business_details.class);
+            intent.putExtra("dianming",data.get(id).getMerchant_name());
+            intent.putExtra("renjun",data.get(id).getPer_capita_consumption());
+            intent.putExtra("opentime",data.get(id).getOpening_time());
+            intent.putExtra("closetime",data.get(id).getClosing_time());
+            intent.putExtra("dizhi",data.get(id).getBusiness_location());
+            intent.putExtra("lianxiren","前台");
+            intent.putExtra("phone",data.get(id).getPhone());
+            intent.putExtra("xiangqing",data.get(id).getDetail_info());
+            intent.putExtra("image",image.get(id).getImg_url());
+            context.startActivity(intent);
         }
     }
 
