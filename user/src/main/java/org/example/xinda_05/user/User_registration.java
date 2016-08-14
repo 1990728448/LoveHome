@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.example.xinda_05.util.SQLUtil.userSQL;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.example.xinda_05.util.util.xUtil;
 import org.json.JSONException;
@@ -186,7 +187,9 @@ public class User_registration extends Activity {
                                     log.setCancelable(true);
                                     log.show();
                                     //进行验证码验证
-                                    checkCode();
+                                    //checkCode();
+                                    //本地验证数据库用户名
+                                    checkUser(etPhone.getText().toString(),user_password.getText().toString());
                                 }else{
                                     Toast.makeText(User_registration.this, "两次输入密码不一致", Toast.LENGTH_SHORT).show();
                                 }
@@ -208,6 +211,18 @@ public class User_registration extends Activity {
         }
     }
 
+    private void checkUser(String number,String pwd) {
+        userSQL user=new userSQL(User_registration.this);
+        if(user.addUser(number,pwd)){
+            Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+            log.cancel();
+            finish();
+        }else{
+            Toast.makeText(this, "该用户已注册", Toast.LENGTH_SHORT).show();
+            log.cancel();
+        }
+    }
+
     private void checkCode() {
 
         xUtil.getCode(new Callback.CacheCallback<String>() {
@@ -219,6 +234,14 @@ public class User_registration extends Activity {
             @Override
             public void onSuccess(String result) {
                 Log.e("TAG","成功了，"+result);
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e("TAG",ex.toString());
+                log.cancel();
+                Toast.makeText(User_registration.this, "网络连接失败", Toast.LENGTH_SHORT).show();
                 HttpUtil.getURLData().registerUser(new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -242,11 +265,6 @@ public class User_registration extends Activity {
                         super.onFailure(statusCode, headers, throwable, errorResponse);
                     }
                 },etPhone.getText().toString(),user_password.getText().toString(),user_yanzhengma.getText().toString());
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
             }
 
             @Override

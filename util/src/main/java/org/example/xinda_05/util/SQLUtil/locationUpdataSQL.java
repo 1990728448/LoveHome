@@ -20,7 +20,7 @@ public class locationUpdataSQL {
         String sql="update location set merchant_name='"+merchant_name+"',"+"opening_time='"+opening_time+"'," +
                 ""+"closing_time='"+closing_time+"',"+"per_capita_consumption='"+per_capita_consumption+"',"+"measure_unit='" +
                 ""+measure_unit+"',"+"business_location='"+business_location+"',"+"people='"+people+"'," +
-                ""+"phone='"+phone+"',"+"image_url='"+image_url+"' where _id = "+ID+";" ;
+                ""+"phone='"+phone+"',"+"image_url='"+image_url+"' where _id = "+ID ;
         sd.execSQL(sql);
     }
 

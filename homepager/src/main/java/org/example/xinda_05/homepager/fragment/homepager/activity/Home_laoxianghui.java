@@ -66,6 +66,7 @@ public class Home_laoxianghui extends Activity implements WaterDropListView.IWat
         LinearLayout shuaxin = (LinearLayout) findViewById(R.id.HomePager_search_shop_Search);
         HomePager_Store_allStore= (LinearLayout) findViewById(R.id.HomePager_Store_allStore);
 
+
         HomePager_Store_allStore.setOnClickListener(new storeChange(this));
 
         Home_pager_LXH_listView = (WaterDropListView) findViewById(R.id.Home_pager_LXH_listView);
