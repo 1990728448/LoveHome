@@ -2,8 +2,11 @@ package org.example.xinda_05.my.My_Jump;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +25,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.my.Constent.publishEntity;
 import org.example.xinda_05.my.R;
+import org.example.xinda_05.release.activity.activity.Release_Currency_Activity;
+import org.example.xinda_05.user.User_forgetpasssword;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +34,6 @@ import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 import medusa.theone.waterdroplistview.view.WaterDropListView;
 import it.sephiroth.android.library.picasso.Picasso;
-
 /**
  * Created by Jerry Mouse on 2016/8/9.
  */
@@ -37,6 +42,7 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
     ImageView img;
     LinearLayout ly;
     WaterDropListView lv;
+    RelativeLayout rl,r2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,33 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
         img= (ImageView) findViewById(R.id.back);
         ly= (LinearLayout) findViewById(R.id.popwind);
         lv= (WaterDropListView) findViewById(R.id.My_release_lv);
+
+
+     /*  rl= (RelativeLayout) findViewById(R.id.My_examine_r1);
+       // r2= (RelativeLayout) findViewById(R.id.My_examine_r2);
+        //rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it1=new Intent(My_releaseActivity.this,Release_Currency_Activity.class);
+                startActivity(it1);
+            }
+        });
+        r2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert=new AlertDialog.Builder(My_releaseActivity.this);
+                alert.setTitle("是否删除");
+                alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Toast.makeText(My_releaseActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert.setNegativeButton("取消", null);
+                alert.show();
+            }
+        });*/
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,12 +104,12 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
                 Gson gson=new Gson();
                 try {
                     String msg=response.getString("list");
-                    Log.e("Tag",msg);
                     ArrayList<publishEntity> list=gson.fromJson(msg,new TypeToken<ArrayList<publishEntity>>(){}.getType());
                     lv.setAdapter(new listView(My_releaseActivity.this,list));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             }
 
             @Override

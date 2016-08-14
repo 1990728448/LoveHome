@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
     <TextView
         android:id="@+id/poptex1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:text="已审核"/>
+        android:textSize="20dp"
+        android:text="已审核"
+        android:background="#ffffff"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="#FFFFFF"/>
+        android:background="#e8e8e8"/>
     <TextView
         android:id="@+id/poptex2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:text="未审核"/>
+        android:textSize="20dp"
+        android:text="未审核"
+        android:background="#ffffff"/>
 </LinearLayout>
