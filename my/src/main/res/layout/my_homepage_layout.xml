@@ -317,12 +317,12 @@
                     />
             </LinearLayout>
             <Button
+                android:id="@+id/My_homepage_exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center"
-                android:padding="8dp"
                 android:background="@mipmap/btn_small_green"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"

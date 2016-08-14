@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 import medusa.theone.waterdroplistview.view.WaterDropListView;
-
+import it.sephiroth.android.library.picasso.Picasso;
 
 /**
  * Created by Jerry Mouse on 2016/8/9.
@@ -131,28 +131,23 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
                 holder.t2=(TextView) view.findViewById(R.id.My_examine_money);
                 holder.t3=(TextView) view.findViewById(R.id.My_examine_type);
                 holder.t4=(TextView) view.findViewById(R.id.My_examine_time);
-                holder.t5=(TextView) view.findViewById(R.id.My_examine_modify);
-                holder.t6=(TextView) view.findViewById(R.id.My_examine_delete);
-                holder.t7=(TextView) view.findViewById(R.id.My_examine_text_segmentation);
                 holder.i1=(ImageView) view.findViewById(R.id.My_examine_Head);
-                holder.i2=(ImageView) view.findViewById(R.id.My_examine_delete_picture);
-                holder.i3=(ImageView) view.findViewById(R.id.My_examine_segmentation);
-                holder.i4=(ImageView) view.findViewById(R.id.My_examine_modify_picture);
-                holder.i5=(ImageView) view.findViewById(R.id.My_examine_clock);
                 view.setTag(holder);
             }else{
                 holder= (ViewHolder) view.getTag();
             }
             holder.t1.setText(data.get(i).getBusiness_location());
-
-
+            holder.t2.setText(data.get(i).getBusiness_location());
+            holder.t3.setText(data.get(i).getBusiness_location());
+            holder.t4.setText(data.get(i).getBusiness_location());
+            Picasso.with(context).load(R.mipmap.defualt).into(holder.i1);
             return view;
         }
     }
 
     private class ViewHolder{
-        TextView t1,t2,t3,t4,t5,t6,t7;
-        ImageView i1,i2,i3,i4,i5;
+        TextView t1,t2,t3,t4;
+        ImageView i1;
 
     }
 }

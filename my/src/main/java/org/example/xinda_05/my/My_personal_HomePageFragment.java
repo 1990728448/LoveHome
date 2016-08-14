@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import org.example.xinda_05.my.My_Jump.My_MessageActivity;
 import org.example.xinda_05.my.My_Jump.My_StatementActivitiy;
 import org.example.xinda_05.my.My_Jump.My_aboutActivity;
 import org.example.xinda_05.my.My_Jump.My_collectionActivity;
+import org.example.xinda_05.my.My_Jump.My_pwdActivity;
 import org.example.xinda_05.my.My_Jump.My_releaseActivity;
 import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
 
@@ -37,6 +39,7 @@ public class My_personal_HomePageFragment extends Fragment {
         lat7=(LinearLayout)view.findViewById(R.id.person_mypublish_intent7);
         lat8=(LinearLayout)view.findViewById(R.id.person_mypublish_intent6);
         lat9= (LinearLayout)view.findViewById(R.id.person_mypublish_intent8);
+      Button  bt1 =(Button) view.findViewById(R.id.My_homepage_exit);
         lat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,8 +85,8 @@ public class My_personal_HomePageFragment extends Fragment {
         lat7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//              Intent it7=new Intent(getActivity(),My_pwdActivity.class);
-   //           getActivity().startActivity(it7);
+          Intent it7=new Intent(getActivity(),My_pwdActivity.class);
+          getActivity().startActivity(it7);
             }
         });
         lat8.setOnClickListener(new View.OnClickListener() {
@@ -103,11 +106,25 @@ public class My_personal_HomePageFragment extends Fragment {
                        Toast.makeText(getActivity(),"清除成功", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
                 alert.setNegativeButton("取消", null);
                 alert.show();
 
+            }
+        });
+       bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert=new AlertDialog.Builder(getContext());
+                alert.setTitle("是否退出登录");
+                alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Toast.makeText(getActivity(),"退出成功", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert.setNegativeButton("取消", null);
+                alert.show();
             }
         });
         return view;
