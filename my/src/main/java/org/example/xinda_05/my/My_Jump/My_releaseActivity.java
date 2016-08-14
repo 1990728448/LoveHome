@@ -2,6 +2,7 @@ package org.example.xinda_05.my.My_Jump;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.my.Constent.publishEntity;
 import org.example.xinda_05.my.R;
+import org.example.xinda_05.user.User_login;
+import org.example.xinda_05.util.SharedPreferences.SharedPreferencesUtil;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,55 +40,64 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
     ImageView img;
     LinearLayout ly;
     WaterDropListView lv;
+    private SharedPreferencesUtil sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_release_layout);
-        img= (ImageView) findViewById(R.id.back);
-        ly= (LinearLayout) findViewById(R.id.popwind);
-        lv= (WaterDropListView) findViewById(R.id.My_release_lv);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        ly.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupWindow pop=new PopupWindow(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                View v= LayoutInflater.from(My_releaseActivity.this).inflate(R.layout.pop_v,null);
-                pop.setContentView(v);
-                pop.setFocusable(true);
-                pop.setOutsideTouchable(true);
-                pop.setBackgroundDrawable(new BitmapDrawable());
-                pop.showAsDropDown(ly);
-            }
-        });
-
-        HttpUtil.getURLData().getMy_releaseLUrl(new JsonHttpResponseHandler() {
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-                Gson gson=new Gson();
-                try {
-                    String msg=response.getString("list");
-                    Log.e("Tag",msg);
-                    ArrayList<publishEntity> list=gson.fromJson(msg,new TypeToken<ArrayList<publishEntity>>(){}.getType());
-                    lv.setAdapter(new listView(My_releaseActivity.this,list));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        sp = new SharedPreferencesUtil(this);
+        if (!sp.queryLogin("Login").equals("1")) {
+            Intent intent = new Intent(this, User_login.class);
+            startActivity(intent);
+            this.finish();
+        } else {
+            img = (ImageView) findViewById(R.id.back);
+            ly = (LinearLayout) findViewById(R.id.popwind);
+            lv = (WaterDropListView) findViewById(R.id.My_release_lv);
+            img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
                 }
-            }
+            });
+            ly.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PopupWindow pop = new PopupWindow(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    View v = LayoutInflater.from(My_releaseActivity.this).inflate(R.layout.pop_v, null);
+                    pop.setContentView(v);
+                    pop.setFocusable(true);
+                    pop.setOutsideTouchable(true);
+                    pop.setBackgroundDrawable(new BitmapDrawable());
+                    pop.showAsDropDown(ly);
+                }
+            });
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Toast.makeText(My_releaseActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
-            }
-        });
-     }
+            HttpUtil.getURLData().getMy_releaseLUrl(new JsonHttpResponseHandler() {
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    super.onSuccess(statusCode, headers, response);
+                    Gson gson = new Gson();
+                    try {
+                        String msg = response.getString("list");
+                        Log.e("Tag", msg);
+                        ArrayList<publishEntity> list = gson.fromJson(msg, new TypeToken<ArrayList<publishEntity>>() {
+                        }.getType());
+                        lv.setAdapter(new listView(My_releaseActivity.this, list));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                    super.onFailure(statusCode, headers, throwable, errorResponse);
+                    Toast.makeText(My_releaseActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 
     @Override
     public void onRefresh() {
@@ -145,8 +157,8 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
         }
     }
 
-    private class ViewHolder{
-        TextView t1,t2,t3,t4;
+    private class ViewHolder {
+        TextView t1, t2, t3, t4;
         ImageView i1;
 
     }

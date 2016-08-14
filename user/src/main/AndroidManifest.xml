@@ -13,6 +13,7 @@
         <activity android:name=".User_forgetpasssword"/>
         <activity android:name=".User_modifypassword"/>
         <activity android:name=".User_registration"/>
+        <activity android:name="User_Info_change"/>
 
 
     </application>

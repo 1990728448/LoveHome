@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import org.example.xinda_05.util.SQLUtil.userSQL;
+import org.example.xinda_05.util.SharedPreferences.SharedPreferencesUtil;
 
 /**
  * Created by ZhouZhicheng on 2016/8/8.
@@ -19,6 +20,7 @@ public class User_login extends Activity {
     private EditText user_login_zhanghao;
     private EditText user_login_password;
     private Button user_login_Login;
+    private SharedPreferencesUtil sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class User_login extends Activity {
         user_login_zhanghao= (EditText) findViewById(R.id.user_login_zhanghao);
         user_login_password= (EditText) findViewById(R.id.user_login_password);
         user_login_Login= (Button) findViewById(R.id.user_login_Login);
+
+        sp=new SharedPreferencesUtil(this);
 
        //初始化控件
         Button bnt1=(Button) findViewById(R.id.user_login_layout_registration);
@@ -73,6 +77,9 @@ public class User_login extends Activity {
                     userSQL login=new userSQL(User_login.this);
                     if(login.userLogin(user_login_zhanghao.getText().toString(),user_login_password.getText().toString())){
                         Toast.makeText(User_login.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                        sp.addInfo("User",user_login_zhanghao.getText().toString());
+                        sp.addInfo("Login","1");
+                        finish();
                     }else{
                         Toast.makeText(User_login.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     }

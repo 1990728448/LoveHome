@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import org.example.xinda_05.my.My_personal_HomePageFragment;
 import org.example.xinda_05.release.activity.fragment.Release_page_tatle_Fragment;
 import org.example.xinda_05.release.activity.fragment.Release_pager_content_Fragment;
 import org.example.xinda_05.util.SQLUtil.SQLHelper;
+import org.example.xinda_05.util.SharedPreferences.SharedPreferencesUtil;
 
 public class MainActivity extends FragmentActivity {
 
@@ -78,6 +80,18 @@ public class MainActivity extends FragmentActivity {
         //初始化数据库
         SQLHelper helper=new SQLHelper(this);
         helper.getReadableDatabase();
+
+        //判断启动状态
+        SharedPreferencesUtil sp=new SharedPreferencesUtil(this);
+        try{
+            if(sp.queryLogin("Login").equals("1")){
+                Log.e("TAG","当前为登录状态");
+            }
+        }catch (NullPointerException e){
+            e.printStackTrace();
+            sp.addInfo("Login","0");
+        }
+
 
 
     }

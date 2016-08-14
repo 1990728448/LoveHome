@@ -20,6 +20,7 @@ import org.example.xinda_05.my.My_Jump.My_collectionActivity;
 import org.example.xinda_05.my.My_Jump.My_pwdActivity;
 import org.example.xinda_05.my.My_Jump.My_releaseActivity;
 import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
+import org.example.xinda_05.util.SharedPreferences.SharedPreferencesUtil;
 
 
 /**
@@ -27,9 +28,26 @@ import org.example.xinda_05.my.My_Jump.My_thedraftActivity;
  */
 public class My_personal_HomePageFragment extends Fragment {
     @Nullable
-     LinearLayout lat1,lat2,lat3,lat4,lat5,lat6,lat7,lat8,lat9;
+
+    private LinearLayout lat1,lat2,lat3,lat4,lat5,lat6,lat7,lat8,lat9;
+    private SharedPreferencesUtil sp;
+    private Button  bt1;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(sp.queryLogin("Login").equals("1")){
+            bt1.setVisibility(View.VISIBLE);
+        }else{
+            bt1.setVisibility(View.GONE);
+        }
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.my_homepage_layout, null);
+
+        sp=new SharedPreferencesUtil(getActivity());
+
         lat1=(LinearLayout) view.findViewById(R.id.person_mypublish_intent);
         lat2=(LinearLayout)view.findViewById(R.id.person_mypublish_intent1);
         lat3=(LinearLayout)view.findViewById(R.id.person_mypublish_intent2);
@@ -39,7 +57,7 @@ public class My_personal_HomePageFragment extends Fragment {
         lat7=(LinearLayout)view.findViewById(R.id.person_mypublish_intent7);
         lat8=(LinearLayout)view.findViewById(R.id.person_mypublish_intent6);
         lat9= (LinearLayout)view.findViewById(R.id.person_mypublish_intent8);
-      Button  bt1 =(Button) view.findViewById(R.id.My_homepage_exit);
+        bt1 =(Button) view.findViewById(R.id.My_homepage_exit);
         lat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +137,12 @@ public class My_personal_HomePageFragment extends Fragment {
                 alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        sp.addInfo("User","请点击登录");
+                        sp.addInfo("Login","0");
+                        bt1.setVisibility(View.GONE);
+//                        FragmentManager fm=getActivity().getSupportFragmentManager();
+//                        My_login_headFragment login= (My_login_headFragment) fm.findFragmentById(R.id.fragment_text);
+//                        login.changeText("请点击登录");
                         Toast.makeText(getActivity(),"退出成功", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -129,6 +152,8 @@ public class My_personal_HomePageFragment extends Fragment {
         });
         return view;
     }
+
+
 
 }
 
