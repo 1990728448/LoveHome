@@ -3,6 +3,7 @@ package org.example.xinda_05.release.activity.activity;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceActivity;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -51,6 +53,7 @@ public class Release_Meishi_Activity  extends Activity {
     private ImageView MeishiCamera;//照相机
     private ImageView img;
     private File uploadFile;
+
                         //  拍照               相册选择              取消
     private TextView ReleasePhotograph,ReleaseAlbumselection,Releasecancel;
     PopupWindow pop;
@@ -166,15 +169,45 @@ public class Release_Meishi_Activity  extends Activity {
                      public void onClick(View view) {
                          Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                          startActivityForResult(intent, 1000);
+                         pop.dismiss();
                      }
                  });
+
                  img = (ImageView) findViewById(R.id.img);
+                img.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        AlertDialog.Builder builder=new AlertDialog.Builder(Release_Meishi_Activity.this);
+                        builder .setTitle("提示");
+                        builder.setMessage("您确定要删除当前照片吗");
+                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                Toast.makeText(Release_Meishi_Activity.this, "被点击了", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        builder.setNegativeButton("取消",null);
+                        builder.show();
+                        return true;
+                    }
+
+                });
+
                  ReleaseAlbumselection = (TextView) view.findViewById(R.id.Release_Albumselection);
                  ReleaseAlbumselection.setOnClickListener(new View.OnClickListener() {
                      @Override
                      public void onClick(View view) {
                          Intent it2 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                          startActivityForResult(it2, 1001);
+                         pop.dismiss();
+                     }
+                 });
+                 Releasecancel = (TextView) view.findViewById(R.id.Release_cancel);
+                 Releasecancel.setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View view) {
+                         pop.dismiss();
                      }
                  });
              }

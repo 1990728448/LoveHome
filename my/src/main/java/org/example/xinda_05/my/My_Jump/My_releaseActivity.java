@@ -2,7 +2,6 @@ package org.example.xinda_05.my.My_Jump;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,8 +21,6 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.my.Constent.publishEntity;
 import org.example.xinda_05.my.R;
-import org.example.xinda_05.user.User_login;
-import org.example.xinda_05.util.SharedPreferences.SharedPreferencesUtil;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,10 +38,59 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
     LinearLayout ly;
     WaterDropListView lv;
     private SharedPreferencesUtil sp;
+    RelativeLayout rl,r2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_release_layout);
+        img= (ImageView) findViewById(R.id.back);
+        ly= (LinearLayout) findViewById(R.id.popwind);
+        lv= (WaterDropListView) findViewById(R.id.My_release_lv);
+
+
+     /*  rl= (RelativeLayout) findViewById(R.id.My_examine_r1);
+       // r2= (RelativeLayout) findViewById(R.id.My_examine_r2);
+        //rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it1=new Intent(My_releaseActivity.this,Release_Currency_Activity.class);
+                startActivity(it1);
+            }
+        });
+        r2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alert=new AlertDialog.Builder(My_releaseActivity.this);
+                alert.setTitle("是否删除");
+                alert.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Toast.makeText(My_releaseActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert.setNegativeButton("取消", null);
+                alert.show();
+            }
+        });*/
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        ly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupWindow pop=new PopupWindow(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                View v= LayoutInflater.from(My_releaseActivity.this).inflate(R.layout.pop_v,null);
+                pop.setContentView(v);
+                pop.setFocusable(true);
+                pop.setOutsideTouchable(true);
+                pop.setBackgroundDrawable(new BitmapDrawable());
+                pop.showAsDropDown(ly);
+            }
+        });
         sp = new SharedPreferencesUtil(this);
         if (!sp.queryLogin("Login").equals("1")) {
             Intent intent = new Intent(this, User_login.class);
@@ -89,6 +135,19 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
                         e.printStackTrace();
                     }
                 }
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Gson gson=new Gson();
+                try {
+                    String msg=response.getString("list");
+                    ArrayList<publishEntity> list=gson.fromJson(msg,new TypeToken<ArrayList<publishEntity>>(){}.getType());
+                    lv.setAdapter(new listView(My_releaseActivity.this,list));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
