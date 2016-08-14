@@ -45,4 +45,8 @@
                     android:src="@mipmap/xiangxiajiantou"/>
             </LinearLayout>
         </LinearLayout>
+    <medusa.theone.waterdroplistview.view.WaterDropListView
+        android:id="@+id/My_release_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

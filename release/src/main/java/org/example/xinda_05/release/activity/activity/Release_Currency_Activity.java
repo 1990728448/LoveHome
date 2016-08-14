@@ -2,8 +2,11 @@ package org.example.xinda_05.release.activity.activity;
 
 import android.app.Activity;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -17,7 +20,7 @@ import org.example.xinda_05.release.R;
 public class Release_Currency_Activity extends Activity {
     private LinearLayout item_back;
     private TextView StartTime, Endtime;
-
+       private ImageView Cameracurrency;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,14 @@ public class Release_Currency_Activity extends Activity {
                     }
                 }, 11, 3, true);
                 dialog.show();
+            }
+        });
+        Cameracurrency= (ImageView) findViewById(R.id.Camera_currency);
+        Cameracurrency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 1);
             }
         });
     }
