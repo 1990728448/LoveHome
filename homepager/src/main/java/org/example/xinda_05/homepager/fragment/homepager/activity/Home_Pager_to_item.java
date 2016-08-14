@@ -55,18 +55,19 @@ public class Home_Pager_to_item extends Activity{
 
         @Override
         public void onClick(View view) {
-            View view1= LayoutInflater.from(context).inflate(R.layout.home_pager_item_popupwindow,null);
-            PopupWindow pop1=new PopupWindow(view1, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
-            pop1.setBackgroundDrawable(new BitmapDrawable());
-            pop1.setFocusable(true);
-            pop1.showAsDropDown(view,0,0);
-
-            View view2 = LayoutInflater.from(context).inflate(R.layout.home_laoxianghui_popowind_layouth, null);
-            PopupWindow pop2 = new PopupWindow(view2, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-            pop2.setBackgroundDrawable(new BitmapDrawable());
-            pop2.setFocusable(true);
-            pop2.showAsDropDown(view, 0, 0);
-
+            if(view.getId()==R.id.HomePager_item_layout_popwindow1) {
+                View view1 = LayoutInflater.from(context).inflate(R.layout.home_pager_item_popupwindow, null);
+                PopupWindow pop1 = new PopupWindow(view1, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                pop1.setBackgroundDrawable(new BitmapDrawable());
+                pop1.setFocusable(true);
+                pop1.showAsDropDown(view, 0, 0);
+            }else if(view.getId()==R.id.HomePager_item_layout_popwindow2) {
+                View view2 = LayoutInflater.from(context).inflate(R.layout.home_laoxianghui_popowind_layouth, null);
+                PopupWindow pop2 = new PopupWindow(view2, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                pop2.setBackgroundDrawable(new BitmapDrawable());
+                pop2.setFocusable(true);
+                pop2.showAsDropDown(view, 0, 0);
+            }
 
 
         }
