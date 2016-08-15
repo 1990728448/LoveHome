@@ -2,6 +2,7 @@ package org.example.xinda_05.my.My_Jump;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,13 +23,17 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.example.xinda_05.my.Constent.publishEntity;
 import org.example.xinda_05.my.R;
+import org.example.xinda_05.user.User_login;
+import org.example.xinda_05.util.SharedPreferences.SharedPreferencesUtil;
 import org.example.xinda_05.util.util.HttpUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
-import cz.msebera.android.httpclient.Header;
-import medusa.theone.waterdroplistview.view.WaterDropListView;
+
 import it.sephiroth.android.library.picasso.Picasso;
+import medusa.theone.waterdroplistview.view.WaterDropListView;
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by Jerry Mouse on 2016/8/9.
@@ -135,19 +141,19 @@ public class My_releaseActivity extends Activity implements WaterDropListView.IW
                         e.printStackTrace();
                     }
                 }
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-                Gson gson=new Gson();
-                try {
-                    String msg=response.getString("list");
-                    ArrayList<publishEntity> list=gson.fromJson(msg,new TypeToken<ArrayList<publishEntity>>(){}.getType());
-                    lv.setAdapter(new listView(My_releaseActivity.this,list));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                super.onSuccess(statusCode, headers, response);
+//                Gson gson=new Gson();
+//                try {
+//                    String msg=response.getString("list");
+//                    ArrayList<publishEntity> list=gson.fromJson(msg,new TypeToken<ArrayList<publishEntity>>(){}.getType());
+//                    lv.setAdapter(new listView(My_releaseActivity.this,list));
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {

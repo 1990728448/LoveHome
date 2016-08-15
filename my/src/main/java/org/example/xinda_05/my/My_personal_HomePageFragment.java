@@ -140,9 +140,7 @@ public class My_personal_HomePageFragment extends Fragment {
                         sp.addInfo("User","请点击登录");
                         sp.addInfo("Login","0");
                         bt1.setVisibility(View.GONE);
-//                        FragmentManager fm=getActivity().getSupportFragmentManager();
-//                        My_login_headFragment login= (My_login_headFragment) fm.findFragmentById(R.id.fragment_text);
-//                        login.changeText("请点击登录");
+                        My_login_headFragment.changeText("请点击登录");
                         Toast.makeText(getActivity(),"退出成功", Toast.LENGTH_SHORT).show();
                     }
                 });

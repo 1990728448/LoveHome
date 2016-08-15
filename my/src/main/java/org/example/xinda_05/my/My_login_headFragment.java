@@ -22,7 +22,7 @@ public class My_login_headFragment extends Fragment {
 
     private View view;
     private LinearLayout user_intent_layout;
-    private TextView My_personal_title_text;
+    public static TextView My_personal_title_text;
     private SharedPreferencesUtil sp;
 
     @Nullable
@@ -63,7 +63,7 @@ public class My_login_headFragment extends Fragment {
         }
     }
 
-    public void changeText(String str){
+    public static void changeText(String str){
         My_personal_title_text.setText(str);
     }
 }
